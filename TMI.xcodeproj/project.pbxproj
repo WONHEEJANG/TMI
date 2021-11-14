@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4B1514462738D2A80046E22C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1514452738D2A80046E22C /* AppDelegate.swift */; };
 		4B1514482738D2A80046E22C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1514472738D2A80046E22C /* SceneDelegate.swift */; };
-		4B15144A2738D2A80046E22C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1514492738D2A80046E22C /* HomeViewController.swift */; };
+		4B15144A2738D2A80046E22C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1514492738D2A80046E22C /* FeedViewController.swift */; };
 		4B15144D2738D2A80046E22C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B15144B2738D2A80046E22C /* Main.storyboard */; };
 		4B15144F2738D2A90046E22C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B15144E2738D2A90046E22C /* Assets.xcassets */; };
 		4B1514522738D2A90046E22C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1514502738D2A90046E22C /* LaunchScreen.storyboard */; };
@@ -21,6 +21,14 @@
 		4B15147C2738D79E0046E22C /* TMICollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */; };
 		96D6B5A4273A922100EAA211 /* TMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A3273A922100EAA211 /* TMI.swift */; };
 		96D6B5A6273A927A00EAA211 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A5273A927A00EAA211 /* User.swift */; };
+		96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */; };
+		96D6B5AE273AD7C900EAA211 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AD273AD7C900EAA211 /* PushKit.framework */; };
+		96D6B5B0274152C900EAA211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96D6B5AF274152C900EAA211 /* GoogleService-Info.plist */; };
+		96D6B5B2274159C900EAA211 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5B1274159C900EAA211 /* LoginViewController.swift */; };
+		96D6B5B42741651900EAA211 /* UserFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5B32741651900EAA211 /* UserFeedViewController.swift */; };
+		A85F9186C85C89E83B03194C /* Pods_TMI_TMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A46148D50E2CBBC03303604 /* Pods_TMI_TMIUITests.framework */; };
+		CA0FD9D51B15FE7578DE9C7D /* Pods_TMITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AA105C06F5A5B7FC3DD1E5 /* Pods_TMITests.framework */; };
+		FC23B2E6E49E1C467D380BE6 /* Pods_TMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D93080E673927CE2D1E232 /* Pods_TMI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,10 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B2F12C6CAA6ED50718D47A6 /* Pods-TMI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMI.release.xcconfig"; path = "Target Support Files/Pods-TMI/Pods-TMI.release.xcconfig"; sourceTree = "<group>"; };
 		4B1514422738D2A80046E22C /* TMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1514452738D2A80046E22C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B1514472738D2A80046E22C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4B1514492738D2A80046E22C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4B1514492738D2A80046E22C /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		4B15144C2738D2A80046E22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B15144E2738D2A90046E22C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B1514512738D2A90046E22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,8 +68,22 @@
 		4B1514772738D5590046E22C /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		4B1514792738D7780046E22C /* TMICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMICollectionViewCell.swift; sourceTree = "<group>"; };
 		4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMICollectionHeaderView.swift; sourceTree = "<group>"; };
+		68AA105C06F5A5B7FC3DD1E5 /* Pods_TMITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		765E655A1441C64FA4D118C1 /* Pods-TMITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMITests.release.xcconfig"; path = "Target Support Files/Pods-TMITests/Pods-TMITests.release.xcconfig"; sourceTree = "<group>"; };
 		96D6B5A3273A922100EAA211 /* TMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMI.swift; sourceTree = "<group>"; };
 		96D6B5A5273A927A00EAA211 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		96D6B5A9273AD09000EAA211 /* TMI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMI.entitlements; sourceTree = "<group>"; };
+		96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		96D6B5AD273AD7C900EAA211 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		96D6B5AF274152C900EAA211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96D6B5B1274159C900EAA211 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		96D6B5B32741651900EAA211 /* UserFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedViewController.swift; sourceTree = "<group>"; };
+		9A46148D50E2CBBC03303604 /* Pods_TMI_TMIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMI_TMIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54A649DAB903036636C1680 /* Pods-TMI-TMIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMI-TMIUITests.debug.xcconfig"; path = "Target Support Files/Pods-TMI-TMIUITests/Pods-TMI-TMIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AEC3B2E69F1E337C8574E2DC /* Pods-TMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMI.debug.xcconfig"; path = "Target Support Files/Pods-TMI/Pods-TMI.debug.xcconfig"; sourceTree = "<group>"; };
+		B73BE39FFC8C8AE91B6F8362 /* Pods-TMI-TMIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMI-TMIUITests.release.xcconfig"; path = "Target Support Files/Pods-TMI-TMIUITests/Pods-TMI-TMIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE7588668C30373B4AB452C7 /* Pods-TMITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMITests.debug.xcconfig"; path = "Target Support Files/Pods-TMITests/Pods-TMITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C6D93080E673927CE2D1E232 /* Pods_TMI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +91,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96D6B5AE273AD7C900EAA211 /* PushKit.framework in Frameworks */,
+				96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */,
+				FC23B2E6E49E1C467D380BE6 /* Pods_TMI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0FD9D51B15FE7578DE9C7D /* Pods_TMITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85F9186C85C89E83B03194C /* Pods_TMI_TMIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +123,8 @@
 				4B15145B2738D2A90046E22C /* TMITests */,
 				4B1514662738D2A90046E22C /* TMIUITests */,
 				4B1514432738D2A80046E22C /* Products */,
+				E4C869A4BB4BCF7508CA67F7 /* Pods */,
+				D96D8D998DE5494A938F8726 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,19 +141,23 @@
 		4B1514442738D2A80046E22C /* TMI */ = {
 			isa = PBXGroup;
 			children = (
+				96D6B5A9273AD09000EAA211 /* TMI.entitlements */,
 				4B1514452738D2A80046E22C /* AppDelegate.swift */,
 				4B1514472738D2A80046E22C /* SceneDelegate.swift */,
-				4B1514492738D2A80046E22C /* HomeViewController.swift */,
+				4B1514492738D2A80046E22C /* FeedViewController.swift */,
 				4B1514792738D7780046E22C /* TMICollectionViewCell.swift */,
 				4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */,
 				4B1514752738D2E10046E22C /* WritingViewController.swift */,
 				4B1514772738D5590046E22C /* MyViewController.swift */,
+				96D6B5B1274159C900EAA211 /* LoginViewController.swift */,
+				96D6B5B32741651900EAA211 /* UserFeedViewController.swift */,
 				96D6B5A3273A922100EAA211 /* TMI.swift */,
 				96D6B5A5273A927A00EAA211 /* User.swift */,
 				4B15144B2738D2A80046E22C /* Main.storyboard */,
 				4B15144E2738D2A90046E22C /* Assets.xcassets */,
 				4B1514502738D2A90046E22C /* LaunchScreen.storyboard */,
 				4B1514532738D2A90046E22C /* Info.plist */,
+				96D6B5AF274152C900EAA211 /* GoogleService-Info.plist */,
 			);
 			path = TMI;
 			sourceTree = "<group>";
@@ -146,6 +180,31 @@
 			path = TMIUITests;
 			sourceTree = "<group>";
 		};
+		D96D8D998DE5494A938F8726 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96D6B5AD273AD7C900EAA211 /* PushKit.framework */,
+				96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */,
+				C6D93080E673927CE2D1E232 /* Pods_TMI.framework */,
+				9A46148D50E2CBBC03303604 /* Pods_TMI_TMIUITests.framework */,
+				68AA105C06F5A5B7FC3DD1E5 /* Pods_TMITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4C869A4BB4BCF7508CA67F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEC3B2E69F1E337C8574E2DC /* Pods-TMI.debug.xcconfig */,
+				2B2F12C6CAA6ED50718D47A6 /* Pods-TMI.release.xcconfig */,
+				A54A649DAB903036636C1680 /* Pods-TMI-TMIUITests.debug.xcconfig */,
+				B73BE39FFC8C8AE91B6F8362 /* Pods-TMI-TMIUITests.release.xcconfig */,
+				BE7588668C30373B4AB452C7 /* Pods-TMITests.debug.xcconfig */,
+				765E655A1441C64FA4D118C1 /* Pods-TMITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B15146C2738D2A90046E22C /* Build configuration list for PBXNativeTarget "TMI" */;
 			buildPhases = (
+				BFB56888531111011A95B687 /* [CP] Check Pods Manifest.lock */,
 				4B15143E2738D2A80046E22C /* Sources */,
 				4B15143F2738D2A80046E22C /* Frameworks */,
 				4B1514402738D2A80046E22C /* Resources */,
+				C91F8722CFD5982CBBF887B9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B15146F2738D2A90046E22C /* Build configuration list for PBXNativeTarget "TMITests" */;
 			buildPhases = (
+				4E8EC8CCE908CB414147B5BC /* [CP] Check Pods Manifest.lock */,
 				4B1514542738D2A90046E22C /* Sources */,
 				4B1514552738D2A90046E22C /* Frameworks */,
 				4B1514562738D2A90046E22C /* Resources */,
@@ -188,9 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B1514722738D2A90046E22C /* Build configuration list for PBXNativeTarget "TMIUITests" */;
 			buildPhases = (
+				0D2D9F5AB1E4080584C85197 /* [CP] Check Pods Manifest.lock */,
 				4B15145F2738D2A90046E22C /* Sources */,
 				4B1514602738D2A90046E22C /* Frameworks */,
 				4B1514612738D2A90046E22C /* Resources */,
+				FF849AE494D14A91ACB6E577 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1514522738D2A90046E22C /* LaunchScreen.storyboard in Resources */,
+				96D6B5B0274152C900EAA211 /* GoogleService-Info.plist in Resources */,
 				4B15144F2738D2A90046E22C /* Assets.xcassets in Resources */,
 				4B15144D2738D2A80046E22C /* Main.storyboard in Resources */,
 			);
@@ -271,19 +336,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D2D9F5AB1E4080584C85197 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMI-TMIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E8EC8CCE908CB414147B5BC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFB56888531111011A95B687 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TMI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C91F8722CFD5982CBBF887B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMI/Pods-TMI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMI/Pods-TMI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMI/Pods-TMI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF849AE494D14A91ACB6E577 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMI-TMIUITests/Pods-TMI-TMIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TMI-TMIUITests/Pods-TMI-TMIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TMI-TMIUITests/Pods-TMI-TMIUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4B15143E2738D2A80046E22C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4B15147A2738D7780046E22C /* TMICollectionViewCell.swift in Sources */,
-				4B15144A2738D2A80046E22C /* HomeViewController.swift in Sources */,
+				96D6B5B42741651900EAA211 /* UserFeedViewController.swift in Sources */,
+				4B15144A2738D2A80046E22C /* FeedViewController.swift in Sources */,
 				4B1514762738D2E10046E22C /* WritingViewController.swift in Sources */,
 				4B1514462738D2A80046E22C /* AppDelegate.swift in Sources */,
 				4B1514782738D5590046E22C /* MyViewController.swift in Sources */,
 				4B1514482738D2A80046E22C /* SceneDelegate.swift in Sources */,
 				96D6B5A6273A927A00EAA211 /* User.swift in Sources */,
 				96D6B5A4273A922100EAA211 /* TMI.swift in Sources */,
+				96D6B5B2274159C900EAA211 /* LoginViewController.swift in Sources */,
 				4B15147C2738D79E0046E22C /* TMICollectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,9 +627,11 @@
 		};
 		4B15146D2738D2A90046E22C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEC3B2E69F1E337C8574E2DC /* Pods-TMI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TMI/TMI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MM9R793M6;
 				INFOPLIST_FILE = TMI/Info.plist;
@@ -467,7 +639,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jason.TMI;
+				PRODUCT_BUNDLE_IDENTIFIER = jason.tmi.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,9 +648,11 @@
 		};
 		4B15146E2738D2A90046E22C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B2F12C6CAA6ED50718D47A6 /* Pods-TMI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TMI/TMI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MM9R793M6;
 				INFOPLIST_FILE = TMI/Info.plist;
@@ -486,7 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jason.TMI;
+				PRODUCT_BUNDLE_IDENTIFIER = jason.tmi.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -495,6 +669,7 @@
 		};
 		4B1514702738D2A90046E22C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE7588668C30373B4AB452C7 /* Pods-TMITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +692,7 @@
 		};
 		4B1514712738D2A90046E22C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 765E655A1441C64FA4D118C1 /* Pods-TMITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -539,6 +715,7 @@
 		};
 		4B1514732738D2A90046E22C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A54A649DAB903036636C1680 /* Pods-TMI-TMIUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -559,6 +736,7 @@
 		};
 		4B1514742738D2A90046E22C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B73BE39FFC8C8AE91B6F8362 /* Pods-TMI-TMIUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -8,6 +8,7 @@
 import Foundation
 
 struct TMI {
+    var topic : String
     var emoji : String
     var title : String
     var description : String

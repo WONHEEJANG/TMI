@@ -6,19 +6,46 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseMessaging
 
-class HomeViewController: UIViewController {
+class FeedViewController: UIViewController {
 
+    let db = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        requestNotificationPermission()
+        db.child("firstData").observeSingleEvent(of: .value) { snapshot in
+            print("snapshot : \(snapshot)")
+            print("VIEWDIDLOAD")
+            
+            Messaging.messaging().subscribe(toTopic: "wine") { error in
+                if (error != nil) {
+                            print("Unable to connect with FCM. \(error)")
+                        } else {
+                            print("Connected to FCM.")
+                        }
+            }
+        }
     }
-
-
+    
+    func requestNotificationPermission(){
+           UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+               if didAllow {
+                   print("Push: 권한 허용")
+               } else {
+                   print("Push: 권한 거부")
+               }
+           })
+       }
+    
 }
 
 
-extension HomeViewController: UICollectionViewDataSource {
+extension FeedViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -79,12 +106,12 @@ extension HomeViewController: UICollectionViewDataSource {
 //    }
 //}
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension FeedViewController: UICollectionViewDelegateFlowLayout {
     // 셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 20 - card(width) - 20 - card(width) - 20
         let width: CGFloat = collectionView.bounds.width - (20 * 2)
-        let height: CGFloat = width / 2
+        let height: CGFloat = width / 3
         return CGSize(width: width, height: height)
     }
 }

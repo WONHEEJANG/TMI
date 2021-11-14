@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import FirebaseMessaging
 
-class MyViewController: UIViewController {
+class UserFeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
