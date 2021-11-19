@@ -17,6 +17,8 @@ pod 'Firebase/Messaging'
 
 pod 'KakaoSDK'
 
+pod 'SnapKit'
+
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 
