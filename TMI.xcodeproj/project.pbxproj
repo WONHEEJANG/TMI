@@ -31,6 +31,9 @@
 		96D6B5C22747DAFC00EAA211 /* TransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5C12747DAFC00EAA211 /* TransitionController.swift */; };
 		96D6B5C42747DB7100EAA211 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5C32747DB7100EAA211 /* Presentation.swift */; };
 		96D6B5CA2748016C00EAA211 /* TMITabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5C92748016C00EAA211 /* TMITabBarViewController.swift */; };
+		96D6B5D227488E5D00EAA211 /* icon-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D6B5CF27488E5C00EAA211 /* icon-plus.png */; };
+		96D6B5D327488E5D00EAA211 /* icon-my.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D6B5D027488E5D00EAA211 /* icon-my.png */; };
+		96D6B5D427488E5D00EAA211 /* icon-home.png in Resources */ = {isa = PBXBuildFile; fileRef = 96D6B5D127488E5D00EAA211 /* icon-home.png */; };
 		A85F9186C85C89E83B03194C /* Pods_TMI_TMIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A46148D50E2CBBC03303604 /* Pods_TMI_TMIUITests.framework */; };
 		CA0FD9D51B15FE7578DE9C7D /* Pods_TMITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AA105C06F5A5B7FC3DD1E5 /* Pods_TMITests.framework */; };
 		FC23B2E6E49E1C467D380BE6 /* Pods_TMI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D93080E673927CE2D1E232 /* Pods_TMI.framework */; };
@@ -88,6 +91,9 @@
 		96D6B5C12747DAFC00EAA211 /* TransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionController.swift; sourceTree = "<group>"; };
 		96D6B5C32747DB7100EAA211 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		96D6B5C92748016C00EAA211 /* TMITabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMITabBarViewController.swift; sourceTree = "<group>"; };
+		96D6B5CF27488E5C00EAA211 /* icon-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus.png"; sourceTree = "<group>"; };
+		96D6B5D027488E5D00EAA211 /* icon-my.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-my.png"; sourceTree = "<group>"; };
+		96D6B5D127488E5D00EAA211 /* icon-home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-home.png"; sourceTree = "<group>"; };
 		9A46148D50E2CBBC03303604 /* Pods_TMI_TMIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMI_TMIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54A649DAB903036636C1680 /* Pods-TMI-TMIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMI-TMIUITests.debug.xcconfig"; path = "Target Support Files/Pods-TMI-TMIUITests/Pods-TMI-TMIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AEC3B2E69F1E337C8574E2DC /* Pods-TMI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMI.debug.xcconfig"; path = "Target Support Files/Pods-TMI/Pods-TMI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,20 +160,10 @@
 				96D6B5A9273AD09000EAA211 /* TMI.entitlements */,
 				4B1514452738D2A80046E22C /* AppDelegate.swift */,
 				4B1514472738D2A80046E22C /* SceneDelegate.swift */,
-				4B1514492738D2A80046E22C /* FeedViewController.swift */,
-				96D6B5B5274275F700EAA211 /* TMIDetailViewController.swift */,
-				4B1514792738D7780046E22C /* TMICollectionViewCell.swift */,
-				96D6B5C12747DAFC00EAA211 /* TransitionController.swift */,
-				96D6B5BF2747DA8700EAA211 /* PresentingAnimator.swift */,
-				96D6B5C32747DB7100EAA211 /* Presentation.swift */,
-				4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */,
-				4B1514752738D2E10046E22C /* WritingViewController.swift */,
-				96D6B5C92748016C00EAA211 /* TMITabBarViewController.swift */,
-				4B1514772738D5590046E22C /* MyViewController.swift */,
-				96D6B5B1274159C900EAA211 /* LoginViewController.swift */,
-				96D6B5B32741651900EAA211 /* UserFeedViewController.swift */,
-				96D6B5A3273A922100EAA211 /* TMI.swift */,
-				96D6B5A5273A927A00EAA211 /* User.swift */,
+				96D6B5CC27488CCF00EAA211 /* ViewController */,
+				96D6B5CB27488C5600EAA211 /* Transition */,
+				96D6B5CD27488CF300EAA211 /* Model */,
+				96D6B5CE27488E4300EAA211 /* Images */,
 				4B15144B2738D2A80046E22C /* Main.storyboard */,
 				4B15144E2738D2A90046E22C /* Assets.xcassets */,
 				4B1514502738D2A90046E22C /* LaunchScreen.storyboard */,
@@ -193,6 +189,51 @@
 				4B1514692738D2A90046E22C /* Info.plist */,
 			);
 			path = TMIUITests;
+			sourceTree = "<group>";
+		};
+		96D6B5CB27488C5600EAA211 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				96D6B5C12747DAFC00EAA211 /* TransitionController.swift */,
+				96D6B5BF2747DA8700EAA211 /* PresentingAnimator.swift */,
+				96D6B5C32747DB7100EAA211 /* Presentation.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		96D6B5CC27488CCF00EAA211 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4B1514492738D2A80046E22C /* FeedViewController.swift */,
+				96D6B5B5274275F700EAA211 /* TMIDetailViewController.swift */,
+				4B1514792738D7780046E22C /* TMICollectionViewCell.swift */,
+				4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */,
+				4B1514752738D2E10046E22C /* WritingViewController.swift */,
+				96D6B5C92748016C00EAA211 /* TMITabBarViewController.swift */,
+				4B1514772738D5590046E22C /* MyViewController.swift */,
+				96D6B5B1274159C900EAA211 /* LoginViewController.swift */,
+				96D6B5B32741651900EAA211 /* UserFeedViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		96D6B5CD27488CF300EAA211 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96D6B5A3273A922100EAA211 /* TMI.swift */,
+				96D6B5A5273A927A00EAA211 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96D6B5CE27488E4300EAA211 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				96D6B5D127488E5D00EAA211 /* icon-home.png */,
+				96D6B5D027488E5D00EAA211 /* icon-my.png */,
+				96D6B5CF27488E5C00EAA211 /* icon-plus.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		D96D8D998DE5494A938F8726 /* Frameworks */ = {
@@ -330,8 +371,11 @@
 			files = (
 				4B1514522738D2A90046E22C /* LaunchScreen.storyboard in Resources */,
 				96D6B5B0274152C900EAA211 /* GoogleService-Info.plist in Resources */,
+				96D6B5D427488E5D00EAA211 /* icon-home.png in Resources */,
+				96D6B5D327488E5D00EAA211 /* icon-my.png in Resources */,
 				4B15144F2738D2A90046E22C /* Assets.xcassets in Resources */,
 				4B15144D2738D2A80046E22C /* Main.storyboard in Resources */,
+				96D6B5D227488E5D00EAA211 /* icon-plus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

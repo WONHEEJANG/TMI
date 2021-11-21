@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="9oH-N1-KRc" userLabel="WritingViewController" customClass="WritingViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hfl-Wc-BBj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s85-9y-J5n">
@@ -74,7 +74,7 @@
                             <constraint firstItem="vQS-Z0-dNv" firstAttribute="bottom" secondItem="3kA-xS-LLj" secondAttribute="bottom" id="wXU-vC-Jkd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TMI" image="plus.circle.fill" catalog="system" id="I6l-e8-ptj"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon-plus.png" id="I6l-e8-ptj"/>
                     <connections>
                         <outlet property="SendBtn" destination="3kA-xS-LLj" id="Cmx-J4-f3P"/>
                         <outlet property="SendBtnToBottomSafeArea" destination="wXU-vC-Jkd" id="501-2z-4td"/>
@@ -87,17 +87,17 @@
             </objects>
             <point key="canvasLocation" x="111.59420289855073" y="-466.07142857142856"/>
         </scene>
-        <!--MY-->
+        <!--My View Controller-->
         <scene sceneID="aXN-yb-Ejn">
             <objects>
                 <viewController id="xcz-qS-q96" customClass="MyViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GAs-2U-MXG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="F1H-e8-124"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="MY" image="person.fill" catalog="system" id="zZg-9D-leO"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon-my.png" id="zZg-9D-leO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGg-AH-Rxp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +108,7 @@
             <objects>
                 <viewController id="Rev-R7-29L" userLabel="HomeViewController" customClass="FeedViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6uq-rE-e0d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nIw-Zq-hEj">
@@ -144,7 +144,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="0.92517216010046455" blue="0.98572577432458097" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.76862752440000004" green="0.90196073060000004" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstItem="GoZ-wc-CNT" firstAttribute="leading" secondItem="ggV-UW-C0W" secondAttribute="leading" constant="30" id="38n-Z2-HYG"/>
                                                         <constraint firstItem="fWW-6Z-SN0" firstAttribute="leading" secondItem="GoZ-wc-CNT" secondAttribute="leading" id="62R-SG-qju"/>
@@ -230,7 +230,7 @@
                             <constraint firstItem="nIw-Zq-hEj" firstAttribute="leading" secondItem="MpH-5g-yQe" secondAttribute="leading" id="zTQ-c3-Ic9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="HOME" image="homekit" catalog="system" id="Gna-HX-hxe"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon-home.png" id="Gna-HX-hxe"/>
                     <connections>
                         <outlet property="TMICollectionView" destination="nIw-Zq-hEj" id="QLx-eE-biP"/>
                         <segue destination="m0A-ho-cfh" kind="custom" identifier="FeedToTMIDetail" id="bPd-v1-2vk"/>
@@ -339,10 +339,12 @@
         <scene sceneID="X3H-s3-7q8">
             <objects>
                 <tabBarController id="Juc-Tx-jgm" customClass="TMITabBarViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OzV-nG-hvY">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="OzV-nG-hvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemGray6Color"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Rev-R7-29L" kind="relationship" relationship="viewControllers" id="sh2-O6-9zt"/>
@@ -356,14 +358,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="icon-home.png" width="25" height="24"/>
+        <image name="icon-my.png" width="27" height="24"/>
+        <image name="icon-plus.png" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
