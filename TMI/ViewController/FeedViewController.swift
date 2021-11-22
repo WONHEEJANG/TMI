@@ -66,8 +66,6 @@ extension FeedViewController: UICollectionViewDataSource {
         cell.TMIDescriptionLabel.text = TMIList[indexPath.row].description
         cell.TMIEmojiLabel.text = TMIList[indexPath.row].emoji
         
-//        let item = trackManager.track(at: indexPath.item)
-//        cell.updateUI(item: item)
         return cell
     }
     
@@ -75,21 +73,10 @@ extension FeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-//            guard let item = trackManager.todaysTrack else {
-//                return UICollectionReusableView()
-//            }
             
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TMICollectionHeaderView", for: indexPath) as? TMICollectionHeaderView else {
                 return UICollectionReusableView()
             }
-            
-//            header.update(with: item)
-//            header.tapHandler = { item in
-//                let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
-//                guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
-//                playerVC.simplePlayer.replaceCurrentItem(with: item)
-//                self.present(playerVC, animated: true, completion: nil)
-//            }
             
             return header
         default:
@@ -97,8 +84,12 @@ extension FeedViewController: UICollectionViewDataSource {
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
         let width: CGFloat = collectionView.bounds.width - (20 * 2)
-        let height: CGFloat = width / 2
+        let height: CGFloat = width
+
+        print("width : \(width)")
+        print("height : \(height)")
         return CGSize(width: width, height: height)
     }
 

@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="112" y="187"/>
         </scene>
-        <!--HomeViewController-->
+        <!--FeedViewController-->
         <scene sceneID="nYd-vT-vuG">
             <objects>
-                <viewController id="Rev-R7-29L" userLabel="HomeViewController" customClass="FeedViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" id="Rev-R7-29L" userLabel="FeedViewController" customClass="FeedViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6uq-rE-e0d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,13 +116,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Omk-Yj-Ofe">
                                     <size key="itemSize" width="414" height="128"/>
-                                    <size key="headerReferenceSize" width="50" height="187"/>
+                                    <size key="headerReferenceSize" width="50" height="412"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TMICollectionViewCell" reuseIdentifier="TMICollectionViewCell" id="3IH-TU-aiu" customClass="TMICollectionViewCell" customModule="TMI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="187" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="412" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pLJ-2e-NZe">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
@@ -131,26 +131,22 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-UW-C0W">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오렌지와인에는 오렌지가 들어가지 않는다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoZ-wc-CNT">
-                                                            <rect key="frame" x="30" y="102" width="244.5" height="18"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🍊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWW-6Z-SN0">
+                                                            <rect key="frame" x="30" y="46" width="34" height="36"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWW-6Z-SN0">
-                                                            <rect key="frame" x="30" y="66" width="34" height="36"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오렌지와인에는 오렌지가 들어가지 않는다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoZ-wc-CNT">
+                                                            <rect key="frame" x="78" y="55" width="244.5" height="18"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.76862752440000004" green="0.90196073060000004" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstItem="GoZ-wc-CNT" firstAttribute="leading" secondItem="ggV-UW-C0W" secondAttribute="leading" constant="30" id="38n-Z2-HYG"/>
-                                                        <constraint firstItem="fWW-6Z-SN0" firstAttribute="leading" secondItem="GoZ-wc-CNT" secondAttribute="leading" id="62R-SG-qju"/>
-                                                        <constraint firstItem="GoZ-wc-CNT" firstAttribute="top" secondItem="fWW-6Z-SN0" secondAttribute="bottom" id="EPh-yJ-t2H"/>
-                                                        <constraint firstAttribute="bottom" secondItem="GoZ-wc-CNT" secondAttribute="bottom" constant="8" id="NoO-zb-V2j"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -169,49 +165,49 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TMICollectionHeaderView" id="hY8-bo-6Xu" userLabel="TMICollectionHeaderView" customClass="TMICollectionHeaderView" customModule="TMI" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="187"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="412"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBs-bj-AEY">
-                                            <rect key="frame" x="16" y="8" width="382" height="171"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBs-bj-AEY">
+                                            <rect key="frame" x="16" y="214" width="382" height="121"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TMI Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dV-jE-VbK">
-                                                    <rect key="frame" x="30" y="145" width="116" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="😈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNV-Qj-x1B">
+                                                    <rect key="frame" x="31" y="42" width="34" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TMI Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dV-jE-VbK">
+                                                    <rect key="frame" x="89" y="51" width="116" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNV-Qj-x1B">
-                                                    <rect key="frame" x="30" y="109" width="34" height="36"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Pick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCo-IB-L5g">
-                                                    <rect key="frame" x="30" y="8" width="175" height="36"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.87289765082378201" green="0.87770341645938577" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <constraints>
-                                                <constraint firstItem="bCo-IB-L5g" firstAttribute="top" secondItem="YBs-bj-AEY" secondAttribute="top" constant="8" id="96c-d3-3xN"/>
-                                                <constraint firstItem="7dV-jE-VbK" firstAttribute="leading" secondItem="YBs-bj-AEY" secondAttribute="leading" constant="30" id="AlQ-UE-sZn"/>
-                                                <constraint firstItem="bCo-IB-L5g" firstAttribute="leading" secondItem="YBs-bj-AEY" secondAttribute="leading" constant="30" id="QhC-4w-zxD"/>
-                                                <constraint firstAttribute="bottom" secondItem="7dV-jE-VbK" secondAttribute="bottom" constant="8" id="i7c-sW-RST"/>
-                                                <constraint firstItem="7dV-jE-VbK" firstAttribute="top" secondItem="MNV-Qj-x1B" secondAttribute="bottom" id="kYW-he-axs"/>
-                                                <constraint firstItem="MNV-Qj-x1B" firstAttribute="leading" secondItem="7dV-jE-VbK" secondAttribute="leading" id="ujM-P2-wdW"/>
-                                            </constraints>
                                         </view>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Feed-Header.png" translatesAutoresizingMaskIntoConstraints="NO" id="t7A-gE-UdI">
+                                            <rect key="frame" x="16" y="8" width="382" height="141"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-best.png" translatesAutoresizingMaskIntoConstraints="NO" id="QJC-Ak-pXk">
+                                            <rect key="frame" x="16" y="157" width="243" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-following.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7O-tX-yWS">
+                                            <rect key="frame" x="16" y="355" width="243" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="YBs-bj-AEY" secondAttribute="bottom" constant="8" id="5Pj-WV-gvz"/>
-                                        <constraint firstItem="YBs-bj-AEY" firstAttribute="top" secondItem="hY8-bo-6Xu" secondAttribute="top" constant="8" id="crD-8g-eKV"/>
-                                        <constraint firstAttribute="trailing" secondItem="YBs-bj-AEY" secondAttribute="trailing" constant="16" id="f5A-ns-Dvy"/>
-                                        <constraint firstItem="YBs-bj-AEY" firstAttribute="leading" secondItem="hY8-bo-6Xu" secondAttribute="leading" constant="16" id="vln-IP-qGu"/>
-                                    </constraints>
                                     <connections>
+                                        <outlet property="BestImgView" destination="QJC-Ak-pXk" id="qfG-Hi-c0u"/>
+                                        <outlet property="FollowingImgView" destination="U7O-tX-yWS" id="fXs-Fd-BxK"/>
+                                        <outlet property="HeaderImgView" destination="t7A-gE-UdI" id="7sx-8r-SON"/>
+                                        <outlet property="TMIDescriptionLabel" destination="7dV-jE-VbK" id="tho-pa-Zhs"/>
+                                        <outlet property="TMIEmojiLabel" destination="MNV-Qj-x1B" id="wEw-yQ-Mug"/>
                                         <outlet property="TodaysPickView" destination="YBs-bj-AEY" id="xLX-2c-xGy"/>
                                     </connections>
                                 </collectionReusableView>
@@ -264,7 +260,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.92517216010000003" blue="0.98572577429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.76862752440000004" green="0.90196073060000004" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="Mjc-Td-TeF" firstAttribute="leading" secondItem="3eO-DR-wwJ" secondAttribute="leading" id="Yvg-QB-hyT"/>
                                     <constraint firstItem="3eO-DR-wwJ" firstAttribute="leading" secondItem="e0k-sQ-Wb1" secondAttribute="leading" constant="30" id="hbI-3D-fyg"/>
@@ -358,6 +354,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Feed-Header.png" width="234" height="72"/>
+        <image name="icon-best.png" width="75" height="29"/>
+        <image name="icon-following.png" width="132" height="29"/>
         <image name="icon-home.png" width="25" height="24"/>
         <image name="icon-my.png" width="27" height="24"/>
         <image name="icon-plus.png" width="24" height="24"/>

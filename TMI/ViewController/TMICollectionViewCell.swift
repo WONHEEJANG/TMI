@@ -7,17 +7,47 @@
 //
 
 import UIKit
+import SnapKit
 
 
 class TMICollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var TMIView: UIView!
     @IBOutlet weak var TMIDescriptionLabel: UILabel!
     @IBOutlet weak var TMIEmojiLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        //TMIView 라운드 설정
-        TMIView.roundCorners(cornerRadius: 40, maskedCorners: [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner])
+        //============TMIView============
+        TMIView.clipsToBounds = true
+        TMIView.layer.cornerRadius = 20
+        TMIView.layer.borderWidth = 1
+        TMIView.layer.borderColor = UIColor.black.cgColor
+        TMIView.snp.makeConstraints{(const) in
+            const.size.width.equalToSuperview()
+        }
+        //===============================
+        
+        //============TMIEmojiLabel============
+        TMIEmojiLabel.snp.makeConstraints{(const) in
+            const.centerY.equalToSuperview()
+            const.leading.equalToSuperview().offset(20)
+        }
+        TMIEmojiLabel.backgroundColor = .white
+        TMIEmojiLabel.clipsToBounds = true
+        TMIEmojiLabel.layer.cornerRadius = 10
+        TMIEmojiLabel.layer.borderWidth = 1
+        TMIEmojiLabel.layer.borderColor = UIColor.black.cgColor
+        //=====================================
+    
+        //============TMIDescriptionLabel============
+        TMIDescriptionLabel.snp.makeConstraints{(const) in
+            const.centerY.equalTo(TMIEmojiLabel.snp.centerY)
+            const.leading.equalTo(TMIEmojiLabel.snp.trailing).offset(20)
+//            const.trailing.equalTo(self.snp.trailing).offset(-20)
+        }
+        TMIDescriptionLabel.lineBreakMode = .byWordWrapping
+        //===========================================
     }
     
     //=================================TOUCH & BOUNCE======================================
@@ -64,36 +94,9 @@ class TMICollectionViewCell: UICollectionViewCell {
            }
        }
     
-    
-    
-    
-    
-    
     @objc func handleTap(sender: UITapGestureRecognizer)
     {
         print("tap")
         
     }
 }
-
-
-//
-//class TMICollectionViewCell: UICollectionViewCell {
-//    @IBOutlet weak var trackThumbnail: UIImageView!
-//    @IBOutlet weak var trackTitle: UILabel!
-//    @IBOutlet weak var trackArtist: UILabel!
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//
-//        trackThumbnail.layer.cornerRadius = 4
-//        trackArtist.textColor = UIColor.systemGray2
-//    }
-//
-//    func updateUI(item: Track?) {
-//        guard let track = item else { return }
-//        trackThumbnail.image = track.artwork
-//        trackTitle.text = track.title
-//        trackArtist.text = track.artist
-//    }
-//}
