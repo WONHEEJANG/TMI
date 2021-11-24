@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -122,14 +121,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TMICollectionViewCell" reuseIdentifier="TMICollectionViewCell" id="3IH-TU-aiu" customClass="TMICollectionViewCell" customModule="TMI" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="412" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="412" width="0.0" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pLJ-2e-NZe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-UW-C0W">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-UW-C0W">
+                                                    <rect key="frame" x="20" y="0.0" width="0.0" height="0.0"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🍊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWW-6Z-SN0">
                                                             <rect key="frame" x="30" y="46" width="34" height="36"/>
@@ -149,14 +148,8 @@
                                                     <color key="backgroundColor" red="0.76862752440000004" green="0.90196073060000004" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ggV-UW-C0W" firstAttribute="top" secondItem="pLJ-2e-NZe" secondAttribute="top" id="7qy-VP-10u"/>
-                                                <constraint firstAttribute="trailing" secondItem="ggV-UW-C0W" secondAttribute="trailing" id="8Wx-IG-aSE"/>
-                                                <constraint firstItem="ggV-UW-C0W" firstAttribute="leading" secondItem="pLJ-2e-NZe" secondAttribute="leading" id="Rgb-Ei-rqE"/>
-                                                <constraint firstAttribute="bottom" secondItem="ggV-UW-C0W" secondAttribute="bottom" id="ylC-Ve-HCL"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="414" height="128"/>
+                                        </view>
+                                        <size key="customSize" width="0.0" height="0.0"/>
                                         <connections>
                                             <outlet property="TMIDescriptionLabel" destination="GoZ-wc-CNT" id="xg6-YW-V9o"/>
                                             <outlet property="TMIEmojiLabel" destination="fWW-6Z-SN0" id="75z-Q8-B7C"/>

@@ -73,14 +73,14 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
         // ========================================================================//
         
         //MARK:- TopConstraints Animation
+        let TOPANCHOR_CONSTANT = UIScreen.main.bounds.height / 4 // (디바이스 사이즈 - TMI DETAIL뷰)
 
-               contentViewTopAnchor.constant = 0
+               contentViewTopAnchor.constant = TOPANCHOR_CONSTANT // TOP과 POUP과의 거리
 
                UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
                    contentVC.TMIDetailView.layoutIfNeeded()
                }) { (comp) in
                    toView.alpha = 1.0
-//                   contentVC.TMIDetailView.removeFromSuperview()
                    transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                }
 
@@ -90,7 +90,6 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
                 contentViewHeightAnchor.constant = containerView.frame.height
 
         contentVC.TMIDetailViewEmojiLabel.snp.remakeConstraints { (const) in
-//                    const.top.equalTo(contentVC.TMIDetailView.snp.top).offset(GlobalConstants.safeAreaLayoutTop)
                     const.top.equalToSuperview().offset(50)
                     const.leading.equalTo(contentVC.TMIDetailView.snp.leading).offset(20)
                     const.width.equalTo(contentVC.TMIDetailView.snp.width).multipliedBy(0.8)

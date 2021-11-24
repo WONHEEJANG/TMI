@@ -17,7 +17,21 @@ class TMIDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ContentView", #function)
-        TMIDetailContentView.roundCorners(cornerRadius: 40, maskedCorners: [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner])
+//        TMIDetailContentView.roundCorners(cornerRadius: 40, maskedCorners: [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner])
+        
+        
+        //============TMIDetailView============
+        
+        TMIDetailView.clipsToBounds = true
+
+        TMIDetailView.layer.cornerRadius = 40
+
+        TMIDetailView.layer.borderWidth = 1
+
+        TMIDetailView.layer.borderColor = UIColor.black.cgColor
+        
+        
+        //===============================
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

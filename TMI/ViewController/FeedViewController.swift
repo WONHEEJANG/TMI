@@ -27,6 +27,7 @@ class FeedViewController: UIViewController {
             print("VIEWDIDLOAD")
         }
         
+        
         //wine 키워드 구도
         Messaging.messaging().subscribe(toTopic: "정하늘") { error in
             if (error != nil) {
@@ -124,7 +125,7 @@ extension FeedViewController: UICollectionViewDelegate {
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     // 셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // 20 - card(width) - 20 - card(width) - 20
+        // 20 - card(width) - 20
         let width: CGFloat = collectionView.bounds.width - (20 * 2)
         let height: CGFloat = width / 3
         return CGSize(width: width, height: height)

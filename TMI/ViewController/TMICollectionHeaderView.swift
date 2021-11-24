@@ -20,6 +20,8 @@ class TMICollectionHeaderView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
     
+        let cellWidth = UIScreen.main.bounds.width - 20 * 2 // 디바이스 사이즈
+        
         HeaderImgView.snp.makeConstraints{(const) in
             const.top.equalToSuperview().offset(10)
             const.leading.equalToSuperview().offset(20)
@@ -36,9 +38,9 @@ class TMICollectionHeaderView: UICollectionReusableView {
             const.leading.equalTo(HeaderImgView.snp.leading)
             const.trailing.equalTo(HeaderImgView.snp.trailing)
             
-            const.size.height.equalTo(self.frame.width / 4)
-            
-//            const.bottom.equalTo(FollowingImgView.snp.top).offset(-10)
+//            const.size.height.equalTo(self.frame.width / 4)
+            const.width.equalTo(cellWidth) //추가 21.11.24
+            const.height.equalTo(cellWidth / 3) //추가 21.11.24
         }
         TodaysPickView.clipsToBounds = true
         TodaysPickView.layer.cornerRadius = 20
@@ -54,23 +56,24 @@ class TMICollectionHeaderView: UICollectionReusableView {
         TMIEmojiLabel.snp.makeConstraints{(const) in
             const.centerY.equalToSuperview()
             const.leading.equalToSuperview().offset(20)
+            const.width.height.equalTo(50) //추가 21.11.24
         }
         TMIEmojiLabel.backgroundColor = .white
         TMIEmojiLabel.clipsToBounds = true
         TMIEmojiLabel.layer.cornerRadius = 10
         TMIEmojiLabel.layer.borderWidth = 1
         TMIEmojiLabel.layer.borderColor = UIColor.black.cgColor
+        TMIEmojiLabel.textAlignment = .center //추가 21.11.24
         //=====================================
     
         //============TMIDescriptionLabel============
         TMIDescriptionLabel.snp.makeConstraints{(const) in
             const.centerY.equalTo(TMIEmojiLabel.snp.centerY)
             const.leading.equalTo(TMIEmojiLabel.snp.trailing).offset(20)
+            const.trailing.equalTo(TodaysPickView.snp.trailing).offset(-20) //추가 21.11.24
         }
+        
+        TMIDescriptionLabel.lineBreakMode = .byWordWrapping
         //===========================================
-//        self.layoutIfNeeded()
-//        TodaysPickView.roundCorners(cornerRadius: 40, maskedCorners: [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner])
-        
-        
     }
 }
