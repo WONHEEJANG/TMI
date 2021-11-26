@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Juc-Tx-jgm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z2a-Fc-sVB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -105,7 +105,7 @@
         <!--FeedViewController-->
         <scene sceneID="nYd-vT-vuG">
             <objects>
-                <viewController storyboardIdentifier="FeedViewController" id="Rev-R7-29L" userLabel="FeedViewController" customClass="FeedViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FeedViewController" storyboardIdentifier="FeedViewController" id="Rev-R7-29L" userLabel="FeedViewController" customClass="FeedViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6uq-rE-e0d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,19 +305,11 @@
                     <view key="view" contentMode="scaleToFill" id="DV7-Yp-LI0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-B0-KNU">
-                                <rect key="frame" x="149" y="433" width="117" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="KAKAO LOGIN"/>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ObE-nR-aI1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="KAKAO_LOGIN" destination="wVl-B0-KNU" id="xzN-ZN-rAo"/>
+                        <outlet property="LoginView" destination="DV7-Yp-LI0" id="4zE-4b-c7I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygt-8g-Fgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -327,7 +319,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="X3H-s3-7q8">
             <objects>
-                <tabBarController id="Juc-Tx-jgm" customClass="TMITabBarViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="TMITabBarViewController" storyboardIdentifier="TMITabBarViewController" id="Juc-Tx-jgm" customClass="TMITabBarViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="OzV-nG-hvY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -347,7 +339,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Feed-Header.png" width="234" height="72"/>
+        <image name="Feed-Header.png" width="234" height="71.5"/>
         <image name="icon-best.png" width="75" height="29"/>
         <image name="icon-following.png" width="132" height="29"/>
         <image name="icon-home.png" width="25" height="24"/>

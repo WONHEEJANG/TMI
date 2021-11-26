@@ -91,7 +91,7 @@ extension FeedViewController: UICollectionViewDataSource {
 
         print("width : \(width)")
         print("height : \(height)")
-        return CGSize(width: width, height: height)
+        return CGSize(width: width, height: height * 1.1)
     }
 
 }
