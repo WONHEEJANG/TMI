@@ -144,13 +144,26 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkg-Ku-Uoe">
+                                                            <rect key="frame" x="-21" y="-11" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.76862752440000004" green="0.90196073060000004" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZR5-i5-dc1">
+                                                    <rect key="frame" x="-132" y="-40" width="263" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <size key="customSize" width="0.0" height="0.0"/>
                                         <connections>
+                                            <outlet property="CategoryLabel" destination="qkg-Ku-Uoe" id="7sY-zM-Yuh"/>
+                                            <outlet property="ProfileImgView" destination="ZR5-i5-dc1" id="1iy-ct-Mdj"/>
                                             <outlet property="TMIDescriptionLabel" destination="GoZ-wc-CNT" id="xg6-YW-V9o"/>
                                             <outlet property="TMIEmojiLabel" destination="fWW-6Z-SN0" id="75z-Q8-B7C"/>
                                             <outlet property="TMIView" destination="ggV-UW-C0W" id="OdH-om-ndX"/>
@@ -179,6 +192,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmL-k8-UKp">
+                                                    <rect key="frame" x="332" y="8" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.87289765082378201" green="0.87770341645938577" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </view>
@@ -194,11 +214,17 @@
                                             <rect key="frame" x="16" y="355" width="243" height="49"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mak-yR-hkU">
+                                            <rect key="frame" x="368" y="319" width="30" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <connections>
                                         <outlet property="BestImgView" destination="QJC-Ak-pXk" id="qfG-Hi-c0u"/>
+                                        <outlet property="CategoryLabel" destination="PmL-k8-UKp" id="fAC-rp-j46"/>
                                         <outlet property="FollowingImgView" destination="U7O-tX-yWS" id="fXs-Fd-BxK"/>
                                         <outlet property="HeaderImgView" destination="t7A-gE-UdI" id="7sx-8r-SON"/>
+                                        <outlet property="ProfileImgView" destination="mak-yR-hkU" id="opw-Jh-l6G"/>
                                         <outlet property="TMIDescriptionLabel" destination="7dV-jE-VbK" id="tho-pa-Zhs"/>
                                         <outlet property="TMIEmojiLabel" destination="MNV-Qj-x1B" id="wEw-yQ-Mug"/>
                                         <outlet property="TodaysPickView" destination="YBs-bj-AEY" id="xLX-2c-xGy"/>

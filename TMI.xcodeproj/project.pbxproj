@@ -25,6 +25,7 @@
 		9627A34A2751330A002B6BE0 /* Feed-Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A3492751330A002B6BE0 /* Feed-Header.png */; };
 		9627A3512751485C002B6BE0 /* icon-following.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A34F2751485C002B6BE0 /* icon-following.png */; };
 		9627A3522751485C002B6BE0 /* icon-best.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A3502751485C002B6BE0 /* icon-best.png */; };
+		9627A3542751DDA1002B6BE0 /* profile-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A3532751DDA1002B6BE0 /* profile-sample.png */; };
 		96D6B5A4273A922100EAA211 /* TMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A3273A922100EAA211 /* TMI.swift */; };
 		96D6B5A6273A927A00EAA211 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A5273A927A00EAA211 /* User.swift */; };
 		96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */; };
@@ -90,6 +91,7 @@
 		9627A3492751330A002B6BE0 /* Feed-Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Feed-Header.png"; sourceTree = "<group>"; };
 		9627A34F2751485C002B6BE0 /* icon-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-following.png"; sourceTree = "<group>"; };
 		9627A3502751485C002B6BE0 /* icon-best.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-best.png"; sourceTree = "<group>"; };
+		9627A3532751DDA1002B6BE0 /* profile-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-sample.png"; sourceTree = "<group>"; };
 		96D6B5A3273A922100EAA211 /* TMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMI.swift; sourceTree = "<group>"; };
 		96D6B5A5273A927A00EAA211 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96D6B5A9273AD09000EAA211 /* TMI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMI.entitlements; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				9627A34F2751485C002B6BE0 /* icon-following.png */,
 				9627A34327513267002B6BE0 /* apple-login.png */,
 				9627A3452751326D002B6BE0 /* login-main.png */,
+				9627A3532751DDA1002B6BE0 /* profile-sample.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				9627A34427513267002B6BE0 /* apple-login.png in Resources */,
 				9627A3522751485C002B6BE0 /* icon-best.png in Resources */,
 				96D6B5D227488E5D00EAA211 /* icon-plus.png in Resources */,
+				9627A3542751DDA1002B6BE0 /* profile-sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

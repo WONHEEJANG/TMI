@@ -92,6 +92,7 @@ class LoginViewController: UIViewController {
             const.trailing.equalToSuperview().offset(DeviceWidth * -0.1)
         }
     }
+    
     @objc func clickKakaoLogin(_ sender:UITapGestureRecognizer){
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
