@@ -12,6 +12,7 @@ class TransitionController:NSObject, UIViewControllerTransitioningDelegate{
     
     var superViewController: UIViewController?
     var indexPath: IndexPath?
+    var targetCellFrame: CGRect?
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return Presentation(presentedViewController: presented, presenting: presenting)
@@ -20,7 +21,11 @@ class TransitionController:NSObject, UIViewControllerTransitioningDelegate{
         return PresentingAnimator(indexPath: indexPath!)
     }
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        nil
+        
+        print("indexPath : \(indexPath)")
+        print("targetCellFrame : \(targetCellFrame)")
+        
+        return DismissAnimator(indexPath: indexPath!, cellFrame: targetCellFrame!)
     }
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         nil

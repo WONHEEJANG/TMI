@@ -18,20 +18,24 @@ class LoginViewController: UIViewController {
     let DeviceHeight = UIScreen.main.bounds.height
     let DeviceWidth = UIScreen.main.bounds.width
     
-    //    let appleButton = ASAuthorizationAppleIDButton()
     let LoginImgView = UIImageView(image: UIImage(named: "login-main.png"))
-    
     let appleButton = UIButton(type: .custom)
     let kakaoButton = UIButton(type: .custom)
+    var isLogin : Bool = false
+    //    let appleButton = ASAuthorizationAppleIDButton()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLoginImgView()
-        setupAppleLoginView()
-        setupKakaoLoiginView()
-        
+        if(!isLogin){
+            setupLoginImgView()
+            setupAppleLoginView()
+            setupKakaoLoiginView()
+        }
+        else{
+            
+        }
     }
     
     func PresentWhenLoginComplete(){
@@ -40,6 +44,7 @@ class LoginViewController: UIViewController {
         view?.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(view!, animated: true, completion: nil)
     }
+
     
     func setupLoginImgView(){
         
@@ -76,6 +81,10 @@ class LoginViewController: UIViewController {
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.performRequests()
+        
+        print("request.requestedScopes : \(request.requestedScopes)")
+        
+        let usr = User(id: "", pw: "", profileImg: UIImage(), name: "", age: 0, job: "", contact: "", WrittenTMIs: [], FOLLOWERs: [], FOLLOWINGs: [])
     }
     
     func setupKakaoLoiginView()

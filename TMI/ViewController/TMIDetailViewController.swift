@@ -12,13 +12,13 @@ class TMIDetailViewController: UIViewController {
     @IBOutlet weak var TMIDetailContentView: UIView!
     @IBOutlet weak var TMIDetailViewEmojiLabel: UILabel!
     @IBOutlet weak var TMIDetailViewDescriptionLabel: UILabel!
-
+    @IBOutlet weak var closebutton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ContentView", #function)
         set_DetailView()
-        
-        
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,7 +32,27 @@ class TMIDetailViewController: UIViewController {
         set_DetailContentView()
         set_TMIDetailViewEmojiLabel()
         set_TMIDetailViewDescriptionLabel()
+        set_closeButton()
     }
+    func set_closeButton(){
+        closebutton.snp.makeConstraints{(const) in
+            const.top.equalToSuperview().offset(10)
+            const.trailing.equalToSuperview().offset(-10)
+        }
+        closebutton.tintColor = .black
+        
+        let tapCloseBtnGesture = UITapGestureRecognizer(target: self, action: #selector (handleTap))
+        
+        tapCloseBtnGesture.numberOfTapsRequired = 1
+        closebutton.addGestureRecognizer(tapCloseBtnGesture)
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer)
+    {
+        print("tap")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func set_DetailContentView(){
         TMIDetailContentView.clipsToBounds = true
         TMIDetailContentView.layer.cornerRadius = 40

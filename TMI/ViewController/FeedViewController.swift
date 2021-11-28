@@ -102,13 +102,20 @@ extension FeedViewController: UICollectionViewDelegate {
         
         print("tap => \(indexPath)")
         
+        let cell = collectionView.cellForItem(at: indexPath) as! TMICollectionViewCell
+        print(cell.frame)
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
         let contentVC = storyboard.instantiateViewController(withIdentifier: "TMIDetailViewController") as! TMIDetailViewController
         
         //=============================얘네가 데이터 넘기는거임=======================
+        let currentCellFrame = cell.superview!.convert(cell.frame, to: nil)
+        
+        FeedToDetailTransition.targetCellFrame = currentCellFrame
         FeedToDetailTransition.indexPath = indexPath
         FeedToDetailTransition.superViewController = contentVC
+        
         
         print("emoji :: \(TMIList[indexPath.row].emoji)")
       

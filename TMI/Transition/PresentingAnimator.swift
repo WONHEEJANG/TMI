@@ -36,9 +36,8 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        containerView.alpha = 1.0
+//        containerView.alpha = 1.0
         
-//        guard let fromVC = transitionContext.viewController(forKey: .from) as? FeedViewController else {fatalError()}
         guard let fromVC = transitionContext.viewController(forKey: .from) as? TMITabBarViewController else {fatalError()}
         guard let feedVC = fromVC.children[0] as? FeedViewController else {fatalError()}
         guard let contentVC = transitionContext.viewController(forKey: .to) as? TMIDetailViewController else {fatalError()}
@@ -58,14 +57,14 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
         contentVC.TMIDetailView.layer.cornerRadius = 40
         contentVC.TMIDetailView.translatesAutoresizingMaskIntoConstraints = false
         
-        toView.alpha = 0.0
-        contentVC.TMIDetailView.alpha = 1.0
-        targetCell.alpha = 0.0
+//        toView.alpha = 0.0
+//        contentVC.TMIDetailView.alpha = 1.0
+//        targetCell.alpha = 0.0
         
         containerView.addSubview(toView)
         containerView.addSubview(contentVC.TMIDetailView)
         
-        targetCell.transform = .identity
+//        targetCell.transform = .identity
         
         NSLayoutConstraint.activate(makeConstraints(containerView: containerView, contentView: contentVC.TMIDetailView, Originframe: startFrame))
         containerView.layoutIfNeeded()
@@ -80,7 +79,7 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
                UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
                    contentVC.TMIDetailView.layoutIfNeeded()
                }) { (comp) in
-                   toView.alpha = 1.0
+//                   toView.alpha = 1.0
                    transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                }
 

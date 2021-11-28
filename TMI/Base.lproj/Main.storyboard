@@ -278,6 +278,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmc-05-Xmv">
+                                        <rect key="frame" x="353" y="8" width="41" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system" title=""/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.76862752440000004" green="0.90196073060000004" blue="0.84705877299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -303,6 +309,7 @@
                         <outlet property="TMIDetailView" destination="Rzc-5d-4ZE" id="jxK-mA-bSO"/>
                         <outlet property="TMIDetailViewDescriptionLabel" destination="Mjc-Td-TeF" id="Hgd-61-sql"/>
                         <outlet property="TMIDetailViewEmojiLabel" destination="3eO-DR-wwJ" id="BWC-E0-EJn"/>
+                        <outlet property="closebutton" destination="fmc-05-Xmv" id="L1Z-OY-Dno"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNJ-BS-th6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -371,6 +378,7 @@
         <image name="icon-home.png" width="25" height="24"/>
         <image name="icon-my.png" width="27" height="24"/>
         <image name="icon-plus.png" width="24" height="24"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
