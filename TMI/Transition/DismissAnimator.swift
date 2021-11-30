@@ -48,11 +48,10 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         let targetTabbar = toVC.tabBar
         
         print("===DismissAnimator===")
-//        var finalFrame = appStoreMenuVC.TMICollectionView.convert(targetCell.frame, to: toView)
         
         let finalFrame = targetCellFrame
         if toView.safeAreaInsets.top == 0 {
-//            finalFrame.origin. += 20
+            //            finalFrame.origin. += 20
         }
         targetCell.alpha = 0.0
         fromView.alpha = 0.0
@@ -62,17 +61,14 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         let shadowView = UIView(frame: fromView.frame)
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOpacity = 0.2
-//        shadowView.layer.shadowOffset = .init(width: 0, height: 4)
         shadowView.layer.shadowOffset = .init(width: 0, height: 0)
         shadowView.layer.shadowRadius = 20
         
-        //        let contentView = AppContentView(isContentView: true)
         let contentView = contentVC.TMIDetailContentView!
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = GlobalConstants.cornerRadius
         contentVC.closebutton.alpha = 0.0
-        
-        //        contentView.fetchDataForContentVC(image: targetData!.image, subD: targetData!.subDescription!, desc: targetData!.description!, content: targetData!.content!, contentView: fromView.frame, isTransition: true)
+
         
         containerView.addSubview(shadowView)
         shadowView.addSubview(contentView)
@@ -85,39 +81,44 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
             const.trailing.equalTo(shadowView.snp.trailing)
         }
         
-        containerView.layoutIfNeeded()
+        let VIEW_top_to_EMOJI_top_distance_in_Cell = targetCell.TMIEmojiLabel.frame.minY - targetCell.TMIView.frame.minY
+        let VTEW_leading_to_DESC_leading_distance_in_Cell = targetCell.TMIDescriptionLabel.frame.minX - targetCell.TMIView.frame.minX
+        let VTEW_trailing_to_DESC_trailing_distance_in_Cell = targetCell.TMIView.frame.maxX - targetCell.TMIDescriptionLabel.frame.maxX
+        print("top to emoji distance in Cell :\(VIEW_top_to_EMOJI_top_distance_in_Cell)")
         
-        //        func reConfigureContentLabel() {
-        //
-        //            contentView.subDescriptionLabel.snp.remakeConstraints { (const) in
-        //                const.top.equalTo(contentView.snp.top).offset(15)
-        //                const.leading.equalTo(contentView.snp.leading).offset(15)
-        //                const.width.equalTo(contentView.snp.width).multipliedBy(0.8)
-        //            }
-        //            contentView.descriptionLabel.snp.remakeConstraints { (const) in
-        //                const.top.equalTo(contentView.subDescriptionLabel.snp.bottom).offset(10)
-        //                const.leading.equalToSuperview().offset(15)
-        //                const.width.equalTo(contentView.snp.width).multipliedBy(0.8)
-        //            }
-        //            contentView.imageView.snp.remakeConstraints { (const) in
-        //                const.top.equalTo(contentView.snp.top)
-        //                const.leading.equalTo(contentView.snp.leading)
-        //                const.trailing.equalTo(contentView.snp.trailing)
-        //                const.bottom.equalTo(contentView.snp.bottom)
-        //            }
-        //        }
         
-        //        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveLinear) {
+        contentVC.TMIDetailViewDescriptionLabel.snp.remakeConstraints{(const) in
+            const.centerY.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.centerY)
+            const.leading.equalToSuperview().offset(VTEW_leading_to_DESC_leading_distance_in_Cell)
+            const.trailing.equalToSuperview().offset(-1 * VTEW_trailing_to_DESC_trailing_distance_in_Cell)
+        }
+        
+        contentVC.TMIDetailViewDescriptionLabel.font = contentVC.TMIDetailViewDescriptionLabel.font.withSize(15)
+        contentVC.TMIDetailViewEmojiLabel.backgroundColor = .white
+        contentVC.TMIDetailViewEmojiLabel.layer.borderWidth = 1
+        contentVC.TMIDetailViewEmojiLabel.layer.borderColor = UIColor.black.cgColor
+        
+        contentVC.TMIDetailViewDescriptionLabel.snp.remakeConstraints{(const) in
+            const.centerY.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.centerY)
+            const.leading.equalToSuperview().offset(VTEW_leading_to_DESC_leading_distance_in_Cell)
+            const.trailing.equalToSuperview().offset(-1 * VTEW_trailing_to_DESC_trailing_distance_in_Cell)
+        }
+        
+        contentVC.ProfileImgView.snp.makeConstraints{(const) in
+            const.bottom.equalTo(contentVC.TMIDetailContentView.snp.bottom).offset(15)
+            const.trailing.equalTo(contentVC.TMIDetailContentView.snp.trailing).offset(-10) //추가 21.11.27
+            const.width.equalTo(30)
+            const.height.equalTo(30)
+        }
+        
+        
+        
+        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: .curveEaseOut) {
-            //            reConfigureContentLabel()
             contentView.frame = finalFrame
             shadowView.frame = finalFrame
-            
-            
             toView.alpha = 1.0
-            
-            containerView.layoutIfNeeded()
-            
+
         } completion: { [self] (comp) in
             
             let success = !transitionContext.transitionWasCancelled
@@ -126,7 +127,6 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
                 fromView.alpha = 1.0
                 toView.removeFromSuperview()
             }
-            //            toVC.reloadItems()
             
             targetCell.alpha = 1.0
             targetTabbar.alpha = 1.0

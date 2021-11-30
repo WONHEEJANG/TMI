@@ -37,7 +37,7 @@ class FeedViewController: UIViewController {
                     }
         }
         
-    }   
+    }
     
     //푸시권한
     func requestNotificationPermission(){

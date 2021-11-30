@@ -13,6 +13,8 @@ class TMIDetailViewController: UIViewController {
     @IBOutlet weak var TMIDetailViewEmojiLabel: UILabel!
     @IBOutlet weak var TMIDetailViewDescriptionLabel: UILabel!
     @IBOutlet weak var closebutton: UIButton!
+    @IBOutlet weak var CategoryLabel: UILabel!
+    @IBOutlet weak var ProfileImgView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,17 +61,12 @@ class TMIDetailViewController: UIViewController {
         TMIDetailContentView.layer.borderColor = UIColor.black.cgColor
     }
     func set_TMIDetailViewEmojiLabel(){
-//        TMIDetailViewEmojiLabel.snp.makeConstraints{(const) in
-//            const.top.equalTo(TMIDetailContentView.snp.top)
-//            const.leading.equalTo(TMIDetailContentView.snp.leading)
-//            const.trailing.equalTo(TMIDetailContentView.snp.trailing)
-//            const.width.equalTo(10)
-//        }
-        TMIDetailViewEmojiLabel.backgroundColor = .white
+
+//        TMIDetailViewEmojiLabel.backgroundColor = .white
         TMIDetailViewEmojiLabel.clipsToBounds = true
         TMIDetailViewEmojiLabel.layer.cornerRadius = 10
-        TMIDetailViewEmojiLabel.layer.borderWidth = 1
-        TMIDetailViewEmojiLabel.layer.borderColor = UIColor.black.cgColor
+//        TMIDetailViewEmojiLabel.layer.borderWidth = 1
+//        TMIDetailViewEmojiLabel.layer.borderColor = UIColor.black.cgColor
         TMIDetailViewEmojiLabel.textAlignment = .center
         TMIDetailViewEmojiLabel.font = TMIDetailViewEmojiLabel.font.withSize(30)
     }
