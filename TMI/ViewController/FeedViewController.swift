@@ -108,9 +108,24 @@ extension FeedViewController: UICollectionViewDelegate {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
         let contentVC = storyboard.instantiateViewController(withIdentifier: "TMIDetailViewController") as! TMIDetailViewController
-        
+        let TmiViewSize = cell.TMIView.frame.size
         //=============================얘네가 데이터 넘기는거임=======================
-        let currentCellFrame = cell.superview!.convert(cell.frame, to: nil)
+        
+        //처음 Cell의 Frame을 기억해놨다가 나중에 Dismiss할 때 쓸 것임
+        var currentCellFrame = cell.superview!.convert(cell.frame, to: nil)
+        
+        currentCellFrame.size.width = TmiViewSize.width
+        currentCellFrame.size.height = TmiViewSize.height
+        currentCellFrame.origin.x = 20
+        
+        
+        print("UICollectionViewDelegate")
+        print("cell.superview.frame : \(cell.superview!.frame)")
+        print("cell.frame : \(cell.frame)")
+        print("cell.TMIView.frame : \(cell.TMIView.frame)")
+        print("currentCellFrame : \(currentCellFrame)")
+        
+        
         
         FeedToDetailTransition.targetCellFrame = currentCellFrame
         FeedToDetailTransition.indexPath = indexPath
@@ -150,5 +165,5 @@ extension UIView {
 enum GlobalConstants {
     static var safeAreaLayoutTop: CGFloat = 0
     static let transitionDuration: CGFloat = 0.5
-    static let cornerRadius: CGFloat = 15
+    static let cornerRadius: CGFloat = 20
 }

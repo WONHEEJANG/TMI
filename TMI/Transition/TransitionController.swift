@@ -22,6 +22,7 @@ class TransitionController:NSObject, UIViewControllerTransitioningDelegate{
     }
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
+        print("TransitionController")
         print("indexPath : \(indexPath)")
         print("targetCellFrame : \(targetCellFrame)")
         

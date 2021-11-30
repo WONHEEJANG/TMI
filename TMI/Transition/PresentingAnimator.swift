@@ -89,14 +89,20 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
                 contentViewHeightAnchor.constant = containerView.frame.height
 
         contentVC.TMIDetailViewEmojiLabel.snp.remakeConstraints { (const) in
-                    const.top.equalToSuperview().offset(50)
-                    const.leading.equalTo(contentVC.TMIDetailView.snp.leading).offset(20)
-                    const.width.equalTo(contentVC.TMIDetailView.snp.width).multipliedBy(0.8)
+//                    const.top.equalToSuperview().offset(50)
+//                    const.leading.equalTo(contentVC.TMIDetailView.snp.leading).offset(20)
+//                    const.width.equalTo(contentVC.TMIDetailView.snp.width).multipliedBy(0.8)
+//            const.centerY.equalToSuperview()
+            const.leading.equalToSuperview().offset(100)
+//            const.width.height.equalTo(50) //추가 21.11.24
                 }
         contentVC.TMIDetailViewDescriptionLabel.snp.remakeConstraints { (const) in
-                    const.top.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.bottom).offset(10)
-                    const.leading.equalToSuperview().offset(20)
-                    const.width.equalTo(contentVC.TMIDetailView.snp.width).multipliedBy(0.8)
+//                    etconst.top.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.bottom).offset(10)
+//                    const.leading.equalToSuperview().offset(20)
+//                    const.width.equalTo(contentVC.TMIDetailView.snp.width).multipliedBy(0.8)
+//            const.centerY.equalTo(contentVC.TMIDetailViewDescriptionLabel.snp.centerY)
+//            const.leading.equalTo(contentVC.TMIDetailViewDescriptionLabel.snp.trailing).offset(20)
+//            const.trailing.equalToSuperview().offset(-20)
                 }
 
                 UIView.animate(withDuration: 0.6 * 0.6) {

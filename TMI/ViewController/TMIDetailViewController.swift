@@ -18,7 +18,6 @@ class TMIDetailViewController: UIViewController {
         super.viewDidLoad()
         print("ContentView", #function)
         set_DetailView()
-    
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,29 +54,31 @@ class TMIDetailViewController: UIViewController {
     
     func set_DetailContentView(){
         TMIDetailContentView.clipsToBounds = true
-        TMIDetailContentView.layer.cornerRadius = 40
-        TMIDetailContentView.layer.borderWidth = 2
+        TMIDetailContentView.layer.cornerRadius = 20
+        TMIDetailContentView.layer.borderWidth = 1
         TMIDetailContentView.layer.borderColor = UIColor.black.cgColor
     }
     func set_TMIDetailViewEmojiLabel(){
-        TMIDetailViewEmojiLabel.snp.makeConstraints{(const) in
-            const.top.equalToSuperview().offset(50)
-            const.leading.equalToSuperview().offset(35)
-            const.width.equalTo(50) //추가 21.11.24
-        }
+//        TMIDetailViewEmojiLabel.snp.makeConstraints{(const) in
+//            const.top.equalTo(TMIDetailContentView.snp.top)
+//            const.leading.equalTo(TMIDetailContentView.snp.leading)
+//            const.trailing.equalTo(TMIDetailContentView.snp.trailing)
+//            const.width.equalTo(10)
+//        }
         TMIDetailViewEmojiLabel.backgroundColor = .white
         TMIDetailViewEmojiLabel.clipsToBounds = true
         TMIDetailViewEmojiLabel.layer.cornerRadius = 10
         TMIDetailViewEmojiLabel.layer.borderWidth = 1
         TMIDetailViewEmojiLabel.layer.borderColor = UIColor.black.cgColor
         TMIDetailViewEmojiLabel.textAlignment = .center
+        TMIDetailViewEmojiLabel.font = TMIDetailViewEmojiLabel.font.withSize(30)
     }
     func set_TMIDetailViewDescriptionLabel(){
-        TMIDetailViewDescriptionLabel.snp.makeConstraints{(const) in
-            const.top.equalTo(TMIDetailViewEmojiLabel.snp.bottom).offset(20)
-            const.leading.equalTo(TMIDetailViewEmojiLabel.snp.leading)
-            const.trailing.equalTo(TMIDetailContentView.snp.trailing).offset(-20) //추가 21.11.24
-        }
+//        TMIDetailViewDescriptionLabel.snp.makeConstraints{(const) in
+//            const.top.equalTo(TMIDetailViewEmojiLabel.snp.bottom).offset(20)
+//            const.leading.equalTo(TMIDetailViewEmojiLabel.snp.leading)
+//            const.trailing.equalTo(TMIDetailContentView.snp.trailing).offset(-20) //추가 21.11.24
+//        }
         TMIDetailViewDescriptionLabel.lineBreakMode = .byWordWrapping
     }
 }
