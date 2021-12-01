@@ -216,11 +216,23 @@ extension UIImage {
       format: .RGBA8,
       colorSpace: nil
     )
+      print("origin_bitmap:\(bitmap)")
+      var bitmapForRepresent = bitmap[0...2]
+      var maxIndex = bitmapForRepresent.firstIndex(of: bitmapForRepresent.max()!) ?? 0
+      bitmap[maxIndex] = 255
+      
+      print("bitmap:\(bitmap)")
+      print("bitmapForRepresent:\(bitmapForRepresent)")
+      print("bitmapForRepresent.max():\(bitmapForRepresent.max())")
+      print("bitmapForRepresent.max():\(bitmapForRepresent.firstIndex(of: bitmapForRepresent.max()!))")
+      
     return UIColor(
-      red: CGFloat(bitmap[0]) / 255,
-      green: CGFloat(bitmap[1]) / 255,
-      blue: CGFloat(bitmap[2]) / 255,
-      alpha: CGFloat(bitmap[3]) / 255
+        red: CGFloat(bitmap[0]) / 255 * 0.9,
+        green: CGFloat(bitmap[1]) / 255 * 0.9,
+        blue: CGFloat(bitmap[2]) / 255 * 0.9,
+        alpha: CGFloat(bitmap[3]) / 255
     )
   }
 }
+
+//N넘으면 255로 극대화 시키자
