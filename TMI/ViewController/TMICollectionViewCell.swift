@@ -38,6 +38,7 @@ class TMICollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         set_collectionViewCell()
         updateData()
+        
     }
     
     func updateData(){

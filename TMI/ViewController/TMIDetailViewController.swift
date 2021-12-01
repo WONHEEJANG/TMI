@@ -56,7 +56,9 @@ class TMIDetailViewController: UIViewController {
     
     @objc func handleTap(sender: UITapGestureRecognizer)
     {
-        print("tap")
+        print("DetailView CloseBtn TAP \u{1F603}")
+        
+        
         self.dismiss(animated: true, completion: nil)
     }
     func set_DetailContentView(){
