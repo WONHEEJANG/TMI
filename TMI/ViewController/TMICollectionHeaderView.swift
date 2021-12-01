@@ -101,6 +101,7 @@ class TMICollectionHeaderView: UICollectionReusableView {
         }
         
         TMIDescriptionLabel.lineBreakMode = .byWordWrapping
+        TMIDescriptionLabel.backgroundColor = .none
     }
     func set_CategoryLabel(){
         

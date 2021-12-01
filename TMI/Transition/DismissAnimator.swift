@@ -49,7 +49,9 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         
         print("===DismissAnimator===")
         
-        let finalFrame = targetCellFrame
+        var finalFrame = targetCellFrame // 12.01 추가
+        finalFrame.size.height += 15 // 12.01 추가
+        
         if toView.safeAreaInsets.top == 0 {
             //            finalFrame.origin. += 20
         }
@@ -104,13 +106,37 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
             const.trailing.equalToSuperview().offset(-1 * VTEW_trailing_to_DESC_trailing_distance_in_Cell)
         }
         
-        contentVC.ProfileImgView.snp.makeConstraints{(const) in
-            const.bottom.equalTo(contentVC.TMIDetailContentView.snp.bottom).offset(15)
-            const.trailing.equalTo(contentVC.TMIDetailContentView.snp.trailing).offset(-10) //추가 21.11.27
+        contentVC.TMIDetailCardView.snp.remakeConstraints { (const) in
+            const.top.equalTo(shadowView.snp.top)
+            const.bottom.equalTo(shadowView.snp.bottom).offset(-15)
+            const.leading.equalTo(shadowView.snp.leading)
+            const.trailing.equalTo(shadowView.snp.trailing)
+        }
+        contentVC.TMIDetailCardView.layer.borderWidth = 1
+        contentVC.TMIDetailCardView.layer.cornerRadius = 20
+        contentVC.TMIDetailCardView.layer.backgroundColor = contentVC.TMIDetailContentView.layer.backgroundColor
+        
+        contentVC.TMIDetailContentView.layer.borderWidth = 0
+        contentVC.TMIDetailContentView.layer.backgroundColor = .none
+        
+        contentVC.CategoryLabel.snp.remakeConstraints { (const) in
+            const.top.equalTo(shadowView.snp.top).offset(10)
+            const.trailing.equalTo(shadowView.snp.trailing).offset(-15) //추가 21.11.27
+            
+        }
+        contentVC.CategoryLabel.font = contentVC.CategoryLabel.font.withSize(10)
+        
+        
+        contentVC.ProfileImgView.snp.remakeConstraints{(const) in
+            const.bottom.equalTo(shadowView.snp.bottom) // 15
+            const.trailing.equalTo(shadowView.snp.trailing).offset(-10) // -10
             const.width.equalTo(30)
             const.height.equalTo(30)
         }
         
+        contentVC.AddingView.alpha = 0
+        
+        contentVC.ProfileImgView.clipsToBounds = true
         
         
         

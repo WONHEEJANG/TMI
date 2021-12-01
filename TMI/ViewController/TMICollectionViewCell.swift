@@ -86,6 +86,7 @@ class TMICollectionViewCell: UICollectionViewCell {
             const.leading.equalTo(TMIEmojiLabel.snp.trailing).offset(20)
             const.trailing.equalTo(TMIView.snp.trailing).offset(-20) //추가 21.11.24
         }
+        TMIDescriptionLabel.backgroundColor = .none
     }
     func set_CategoryLabel(){
         CategoryLabel.snp.makeConstraints{(const) in

@@ -98,16 +98,43 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
         }
         contentVC.TMIDetailViewDescriptionLabel.snp.remakeConstraints { (const) in
             const.leading.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.leading)
+            const.trailing.equalTo(contentVC.TMIDetailCardView.snp.trailing).offset(-20)
             const.top.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.bottom).offset(20)
         }
         contentVC.TMIDetailViewDescriptionLabel.font = contentVC.TMIDetailViewDescriptionLabel.font.withSize(20)
         
+        contentVC.TMIDetailCardView.snp.remakeConstraints { (const) in
+            const.top.leading.trailing.equalTo(contentVC.TMIDetailContentView)
+            const.bottom.equalTo(contentVC.CategoryLabel.snp.top).offset(-10)
+        }
+        contentVC.TMIDetailContentView.layer.backgroundColor = targetCell.TMIView.layer.backgroundColor
+        contentVC.TMIDetailCardView.layer.backgroundColor = targetCell.TMIView.layer.backgroundColor
+        
+        contentVC.AddingView.snp.remakeConstraints { (const) in
+            const.top.equalTo(contentVC.TMIDetailViewDescriptionLabel.snp.bottom).offset(20)
+            const.leading.equalTo(contentVC.TMIDetailViewDescriptionLabel.snp.leading)
+            const.trailing.equalTo(contentVC.TMIDetailViewDescriptionLabel.snp.trailing)
+            const.bottom.equalTo(contentVC.TMIDetailCardView.snp.bottom)
+        }
+        contentVC.AddingView.layer.borderWidth =  1
+        contentVC.AddingView.layer.cornerRadius = 20
+        contentVC.AddingView.layer.borderColor = UIColor.black.cgColor
+        contentVC.AddingTextView.layer.cornerRadius = 20
+        
+
+        contentVC.AddingTextView.snp.remakeConstraints { (const) in
+            const.top.equalTo(contentVC.AddingView.snp.top)
+            const.leading.equalTo(contentVC.AddingView.snp.leading)
+            const.trailing.equalTo(contentVC.AddingView.snp.trailing)
+            const.bottom.equalTo(contentVC.AddingView.snp.bottom)
+        }
         
         contentVC.CategoryLabel.snp.remakeConstraints { (const) in
-            const.top.equalTo(contentVC.TMIDetailContentView.snp.top).offset(10)
-            const.trailing.equalTo(contentVC.TMIDetailContentView.snp.trailing).offset(-15) //추가 21.11.27
+            const.trailing.equalTo(contentVC.AddingView.snp.trailing)
+            const.bottom.equalTo(contentVC.ProfileImgView.snp.top).offset(-20)
+            
         }
-        contentVC.CategoryLabel.font = contentVC.CategoryLabel.font.withSize(10)
+        contentVC.CategoryLabel.font = contentVC.CategoryLabel.font.withSize(20)
         contentVC.CategoryLabel.text = "언어"
         
         contentVC.ProfileImgView.snp.remakeConstraints { (const) in
@@ -117,6 +144,8 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
             const.height.equalTo(50)
         }
         contentVC.ProfileImgView.image = UIImage(named: "profile-sample")
+        
+        
         
         
         UIView.animate(withDuration: 0.6 * 0.6) {
