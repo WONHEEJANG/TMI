@@ -25,8 +25,12 @@
 		9627A34A2751330A002B6BE0 /* Feed-Header.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A3492751330A002B6BE0 /* Feed-Header.png */; };
 		9627A3512751485C002B6BE0 /* icon-following.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A34F2751485C002B6BE0 /* icon-following.png */; };
 		9627A3522751485C002B6BE0 /* icon-best.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A3502751485C002B6BE0 /* icon-best.png */; };
-		9627A3542751DDA1002B6BE0 /* profile-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 9627A3532751DDA1002B6BE0 /* profile-sample.png */; };
 		962E315F27535A0200DEB35F /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E315E27535A0200DEB35F /* DismissAnimator.swift */; };
+		962E31E42758D32B00DEB35F /* profile-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E31E32758D32B00DEB35F /* profile-sample.png */; };
+		962E31E82758DD5C00DEB35F /* SettingNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31E72758DD5C00DEB35F /* SettingNameVC.swift */; };
+		962E31EA2758DD6800DEB35F /* SettingCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31E92758DD6800DEB35F /* SettingCategoryVC.swift */; };
+		962E31EC2758DD7200DEB35F /* SettingPushTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31EB2758DD7200DEB35F /* SettingPushTimeVC.swift */; };
+		962E31EE2758DD7C00DEB35F /* SettingProfileImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31ED2758DD7C00DEB35F /* SettingProfileImageVC.swift */; };
 		96D6B5A4273A922100EAA211 /* TMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A3273A922100EAA211 /* TMI.swift */; };
 		96D6B5A6273A927A00EAA211 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A5273A927A00EAA211 /* User.swift */; };
 		96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */; };
@@ -92,8 +96,12 @@
 		9627A3492751330A002B6BE0 /* Feed-Header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Feed-Header.png"; sourceTree = "<group>"; };
 		9627A34F2751485C002B6BE0 /* icon-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-following.png"; sourceTree = "<group>"; };
 		9627A3502751485C002B6BE0 /* icon-best.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-best.png"; sourceTree = "<group>"; };
-		9627A3532751DDA1002B6BE0 /* profile-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-sample.png"; sourceTree = "<group>"; };
 		962E315E27535A0200DEB35F /* DismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
+		962E31E32758D32B00DEB35F /* profile-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-sample.png"; sourceTree = "<group>"; };
+		962E31E72758DD5C00DEB35F /* SettingNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNameVC.swift; sourceTree = "<group>"; };
+		962E31E92758DD6800DEB35F /* SettingCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCategoryVC.swift; sourceTree = "<group>"; };
+		962E31EB2758DD7200DEB35F /* SettingPushTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPushTimeVC.swift; sourceTree = "<group>"; };
+		962E31ED2758DD7C00DEB35F /* SettingProfileImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileImageVC.swift; sourceTree = "<group>"; };
 		96D6B5A3273A922100EAA211 /* TMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMI.swift; sourceTree = "<group>"; };
 		96D6B5A5273A927A00EAA211 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96D6B5A9273AD09000EAA211 /* TMI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMI.entitlements; sourceTree = "<group>"; };
@@ -207,6 +215,17 @@
 			path = TMIUITests;
 			sourceTree = "<group>";
 		};
+		962E31E62758DD4700DEB35F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				962E31E72758DD5C00DEB35F /* SettingNameVC.swift */,
+				962E31E92758DD6800DEB35F /* SettingCategoryVC.swift */,
+				962E31EB2758DD7200DEB35F /* SettingPushTimeVC.swift */,
+				962E31ED2758DD7C00DEB35F /* SettingProfileImageVC.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		96D6B5CB27488C5600EAA211 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +240,7 @@
 		96D6B5CC27488CCF00EAA211 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				962E31E62758DD4700DEB35F /* Setting */,
 				4B1514492738D2A80046E22C /* FeedViewController.swift */,
 				4B1514792738D7780046E22C /* TMICollectionViewCell.swift */,
 				4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */,
@@ -255,7 +275,7 @@
 				9627A34F2751485C002B6BE0 /* icon-following.png */,
 				9627A34327513267002B6BE0 /* apple-login.png */,
 				9627A3452751326D002B6BE0 /* login-main.png */,
-				9627A3532751DDA1002B6BE0 /* profile-sample.png */,
+				962E31E32758D32B00DEB35F /* profile-sample.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -406,7 +426,7 @@
 				9627A34427513267002B6BE0 /* apple-login.png in Resources */,
 				9627A3522751485C002B6BE0 /* icon-best.png in Resources */,
 				96D6B5D227488E5D00EAA211 /* icon-plus.png in Resources */,
-				9627A3542751DDA1002B6BE0 /* profile-sample.png in Resources */,
+				962E31E42758D32B00DEB35F /* profile-sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +562,10 @@
 				96D6B5B6274275F700EAA211 /* TMIDetailViewController.swift in Sources */,
 				4B1514462738D2A80046E22C /* AppDelegate.swift in Sources */,
 				4B1514782738D5590046E22C /* MyViewController.swift in Sources */,
+				962E31EC2758DD7200DEB35F /* SettingPushTimeVC.swift in Sources */,
+				962E31E82758DD5C00DEB35F /* SettingNameVC.swift in Sources */,
+				962E31EE2758DD7C00DEB35F /* SettingProfileImageVC.swift in Sources */,
+				962E31EA2758DD6800DEB35F /* SettingCategoryVC.swift in Sources */,
 				4B1514482738D2A80046E22C /* SceneDelegate.swift in Sources */,
 				96D6B5C02747DA8700EAA211 /* PresentingAnimator.swift in Sources */,
 				96D6B5A6273A927A00EAA211 /* User.swift in Sources */,

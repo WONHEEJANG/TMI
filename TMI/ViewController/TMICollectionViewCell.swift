@@ -30,7 +30,7 @@ class TMICollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var TMIEmojiLabel: UILabel!
     @IBOutlet weak var TMIDescriptionLabel: UILabel!
     @IBOutlet weak var ProfileImgView: UIImageView!
-        
+    
     let cellWidth = UIScreen.main.bounds.width - 20 * 2 // 디바이스 사이즈
     
     override func awakeFromNib() {
@@ -57,9 +57,14 @@ class TMICollectionViewCell: UICollectionViewCell {
     func set_TMIView(){
         TMIView.clipsToBounds = true
         TMIView.layer.cornerRadius = 20
-        TMIView.layer.borderWidth = 1
-        TMIView.layer.borderColor = UIColor.black.cgColor
-    
+        TMIView.layer.shadowOpacity = 1
+        TMIView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        TMIView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        TMIView.layer.shadowRadius = 2
+        
+        TMIView.layer.masksToBounds = false
+        
+        
         TMIView.snp.makeConstraints{(const) in
             const.top.leading.trailing.equalToSuperview()
             const.bottom.equalToSuperview().offset(-15)
@@ -74,12 +79,11 @@ class TMICollectionViewCell: UICollectionViewCell {
             const.leading.equalToSuperview().offset(20)
             const.width.height.equalTo(50) //추가 21.11.24
         }
-        TMIEmojiLabel.backgroundColor = .white
         TMIEmojiLabel.clipsToBounds = true
-        TMIEmojiLabel.layer.cornerRadius = 10
-        TMIEmojiLabel.layer.borderWidth = 1
-        TMIEmojiLabel.layer.borderColor = UIColor.black.cgColor
+        TMIEmojiLabel.backgroundColor = .white
+        TMIEmojiLabel.layer.cornerRadius = 20
         TMIEmojiLabel.textAlignment = .center
+    
     }
     func set_TMIDescriptionLabel(){
         TMIDescriptionLabel.snp.makeConstraints{(const) in
@@ -105,6 +109,7 @@ class TMICollectionViewCell: UICollectionViewCell {
             const.width.equalTo(30)
             const.height.equalTo(30)
         }
+    
     }
     //=================================TOUCH & BOUNCE======================================
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -130,9 +135,9 @@ class TMICollectionViewCell: UICollectionViewCell {
                                           usingSpringWithDamping: 1,
                                           initialSpringVelocity: 1,
                                           options: [.allowUserInteraction], animations: {
-                self.transform = .init(scaleX: 0.96, y: 0.96)
-                self.layoutIfNeeded()
-            }, completion: nil)
+                                            self.transform = .init(scaleX: 0.96, y: 0.96)
+                                            self.layoutIfNeeded()
+                                          }, completion: nil)
         }
         else {
             print("false")
@@ -141,8 +146,8 @@ class TMICollectionViewCell: UICollectionViewCell {
                                           usingSpringWithDamping: 1,
                                           initialSpringVelocity: 0,
                                           options: .allowUserInteraction, animations: {
-                self.transform = .identity
-            }, completion: nil)
+                                            self.transform = .identity
+                                          }, completion: nil)
         }
     }
     @objc func handleTap(sender: UITapGestureRecognizer)

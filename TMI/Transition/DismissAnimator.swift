@@ -61,10 +61,10 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         print("finalFrame : \(finalFrame)")
         
         let shadowView = UIView(frame: fromView.frame)
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOpacity = 0.2
-        shadowView.layer.shadowOffset = .init(width: 0, height: 0)
-        shadowView.layer.shadowRadius = 20
+        shadowView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shadowView.layer.shadowOpacity = 1
+        shadowView.layer.shadowOffset = .init(width: 0, height: 4)
+        shadowView.layer.shadowRadius = 2
         
         let contentView = contentVC.TMIDetailContentView!
         contentView.clipsToBounds = true
@@ -97,8 +97,9 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         
         contentVC.TMIDetailViewDescriptionLabel.font = contentVC.TMIDetailViewDescriptionLabel.font.withSize(15)
         contentVC.TMIDetailViewEmojiLabel.backgroundColor = .white
-        contentVC.TMIDetailViewEmojiLabel.layer.borderWidth = 1
-        contentVC.TMIDetailViewEmojiLabel.layer.borderColor = UIColor.black.cgColor
+        contentVC.TMIDetailViewEmojiLabel.layer.cornerRadius = 20
+    
+        
         
         contentVC.TMIDetailViewDescriptionLabel.snp.remakeConstraints{(const) in
             const.centerY.equalTo(contentVC.TMIDetailViewEmojiLabel.snp.centerY)
@@ -112,9 +113,18 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
             const.leading.equalTo(shadowView.snp.leading)
             const.trailing.equalTo(shadowView.snp.trailing)
         }
-        contentVC.TMIDetailCardView.layer.borderWidth = 1
         contentVC.TMIDetailCardView.layer.cornerRadius = 20
         contentVC.TMIDetailCardView.layer.backgroundColor = contentVC.TMIDetailContentView.layer.backgroundColor
+//
+//        contentVC.TMIDetailCardView.layer.shadowOpacity = 1
+//        contentVC.TMIDetailCardView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+//        contentVC.TMIDetailCardView.layer.shadowOffset = CGSize(width: 0, height: 4)
+//        contentVC.TMIDetailCardView.layer.shadowRadius = 2
+//
+//        contentVC.TMIDetailCardView.layer.masksToBounds = false
+//
+        
+        
         
         contentVC.TMIDetailContentView.layer.borderWidth = 0
         contentVC.TMIDetailContentView.layer.backgroundColor = .none
@@ -133,7 +143,6 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
             const.width.equalTo(30)
             const.height.equalTo(30)
         }
-        
         contentVC.AddingView.alpha = 0
         
         contentVC.ProfileImgView.clipsToBounds = true

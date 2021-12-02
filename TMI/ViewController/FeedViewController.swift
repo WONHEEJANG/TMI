@@ -10,7 +10,7 @@ import Firebase
 import FirebaseMessaging
 
 class FeedViewController: UIViewController {
-
+    
     var FeedToDetailTransition = TransitionController()
     
     let db = Database.database().reference()
@@ -31,24 +31,24 @@ class FeedViewController: UIViewController {
         //wine 키워드 구도
         Messaging.messaging().subscribe(toTopic: "정하늘") { error in
             if (error != nil) {
-                        print("Unable to connect with FCM. \(error)")
-                    } else {
-                        print("Connected to FCM.")
-                    }
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
         }
         
     }
     
     //푸시권한
     func requestNotificationPermission(){
-           UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
-               if didAllow {
-                   print("Push: 권한 허용")
-               } else {
-                   print("Push: 권한 거부")
-               }
-           })
-       }
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge], completionHandler: {didAllow,Error in
+            if didAllow {
+                print("Push: 권한 허용")
+            } else {
+                print("Push: 권한 거부")
+            }
+        })
+    }
     
 }
 
@@ -92,12 +92,12 @@ extension FeedViewController: UICollectionViewDataSource {
         
         let width: CGFloat = collectionView.bounds.width - (20 * 2)
         let height: CGFloat = width
-
+        
         print("width : \(width)")
         print("height : \(height)")
         return CGSize(width: width, height: height * 1.1)
     }
-
+    
 }
 
 extension FeedViewController: UICollectionViewDelegate {
@@ -137,7 +137,7 @@ extension FeedViewController: UICollectionViewDelegate {
         
         
         print("emoji :: \(TMIList[indexPath.row].emoji)")
-      
+        
         contentVC.modalPresentationStyle = .custom
         contentVC.transitioningDelegate = FeedToDetailTransition
         
@@ -176,63 +176,71 @@ enum GlobalConstants {
 extension UILabel {
     var toImage :UIImage?{
         UIGraphicsBeginImageContext(self.frame.size)
-         if let currentContext = UIGraphicsGetCurrentContext() {
+        if let currentContext = UIGraphicsGetCurrentContext() {
             self.layer.render(in: currentContext)
             let nameImage = UIGraphicsGetImageFromCurrentImageContext()
             return nameImage
-         }
-         return nil
+        }
+        return nil
     }
     
 }
 
 extension UIImage {
-  var averageColor: UIColor? {
-    guard let inputImage = CIImage(image: self) else {
-      return nil
+    var averageColor: UIColor? {
+        guard let inputImage = CIImage(image: self) else {
+            return nil
+        }
+        
+        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
+        
+        guard
+            let filter = CIFilter(
+                name: "CIAreaAverage",
+                parameters: [
+                    kCIInputImageKey: inputImage,
+                    kCIInputExtentKey: extentVector
+                ]
+            ),
+            let outputImage = filter.outputImage else {
+            return nil
+        }
+        
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        let context = CIContext(options: [.workingColorSpace: kCFNull!])
+        context.render(
+            outputImage,
+            toBitmap: &bitmap,
+            rowBytes: 4,
+            bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
+            format: .RGBA8,
+            colorSpace: nil
+        )
+        print("origin_bitmap:\(bitmap)")
+        
+        //        for index in 0...2{
+        //            bitmap[index] += UInt8(CGFloat(255 - bitmap[index]) * 0.7)
+        //        }
+        
+        let bitmapAvg = UInt8((CGFloat(bitmap[0])/255 + CGFloat(bitmap[1])/255 + CGFloat(bitmap[2])/255) / 3 * 255)
+        for index in 0...2{
+            if bitmap[index] > bitmapAvg {
+                bitmap[index] = 255
+            }
+        }
+        
+        print("bitmapAvg:\(bitmapAvg)")
+        print("bitmap:\(bitmap)")
+        
+        let ratio:CGFloat = 0.98
+        
+        return UIColor(
+            red: CGFloat(bitmap[0]) / 255 * ratio,
+            green: CGFloat(bitmap[1]) / 255 * ratio,
+            blue: CGFloat(bitmap[2]) / 255 * ratio,
+            alpha: CGFloat(bitmap[3]) / 255 * ratio
+        )
     }
-    
-    let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
-    
-    guard
-      let filter = CIFilter(
-        name: "CIAreaAverage",
-        parameters: [
-          kCIInputImageKey: inputImage,
-          kCIInputExtentKey: extentVector
-        ]
-      ),
-      let outputImage = filter.outputImage else {
-        return nil
-    }
-    
-    var bitmap = [UInt8](repeating: 0, count: 4)
-    let context = CIContext(options: [.workingColorSpace: kCFNull!])
-    context.render(
-      outputImage,
-      toBitmap: &bitmap,
-      rowBytes: 4,
-      bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
-      format: .RGBA8,
-      colorSpace: nil
-    )
-      print("origin_bitmap:\(bitmap)")
-      var bitmapForRepresent = bitmap[0...2]
-      var maxIndex = bitmapForRepresent.firstIndex(of: bitmapForRepresent.max()!) ?? 0
-      bitmap[maxIndex] = 255
-      
-      print("bitmap:\(bitmap)")
-      print("bitmapForRepresent:\(bitmapForRepresent)")
-      print("bitmapForRepresent.max():\(bitmapForRepresent.max())")
-      print("bitmapForRepresent.max():\(bitmapForRepresent.firstIndex(of: bitmapForRepresent.max()!))")
-      
-    return UIColor(
-        red: CGFloat(bitmap[0]) / 255 * 0.9,
-        green: CGFloat(bitmap[1]) / 255 * 0.9,
-        blue: CGFloat(bitmap[2]) / 255 * 0.9,
-        alpha: CGFloat(bitmap[3]) / 255
-    )
-  }
 }
 
 //N넘으면 255로 극대화 시키자

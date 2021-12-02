@@ -73,8 +73,14 @@ class TMICollectionHeaderView: UICollectionReusableView {
         }
         TodaysPickView.clipsToBounds = true
         TodaysPickView.layer.cornerRadius = 20
-        TodaysPickView.layer.borderWidth = 1
-        TodaysPickView.layer.borderColor = UIColor.black.cgColor
+        
+        TodaysPickView.layer.cornerRadius = 20
+        TodaysPickView.layer.shadowOpacity = 1
+        TodaysPickView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        TodaysPickView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        TodaysPickView.layer.shadowRadius = 2
+        
+        TodaysPickView.layer.masksToBounds = false
     }
     func set_TMIEmojiLabel(){
         TMIEmojiLabel.snp.makeConstraints{(const) in
@@ -84,12 +90,11 @@ class TMICollectionHeaderView: UICollectionReusableView {
             
             const.width.height.equalTo(50) //추가 21.11.24
         }
-        TMIEmojiLabel.backgroundColor = .white
         TMIEmojiLabel.clipsToBounds = true
-        TMIEmojiLabel.layer.cornerRadius = 10
-        TMIEmojiLabel.layer.borderWidth = 1
-        TMIEmojiLabel.layer.borderColor = UIColor.black.cgColor
-        TMIEmojiLabel.textAlignment = .center //추가 21.11.24
+        TMIEmojiLabel.backgroundColor = .white
+        TMIEmojiLabel.layer.cornerRadius = 20
+        TMIEmojiLabel.textAlignment = .center
+        
     }
     func set_TMIDescriptionLabel(){
         TMIDescriptionLabel.snp.makeConstraints{(const) in
