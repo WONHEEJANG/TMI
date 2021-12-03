@@ -42,7 +42,7 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         
         //        SubTitleLabel.backgroundColor = .orange
         SubTitleLabel.text = "안녕하세요!\n닉네임을 지어주세요."
-        SubTitleLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)
+        SubTitleLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 22)
         SubTitleLabel.numberOfLines = 2
         
         SubTitleLabel.snp.makeConstraints { const in

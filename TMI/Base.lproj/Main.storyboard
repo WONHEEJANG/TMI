@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G91-GO-qwE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0PA-Jc-X7e">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -415,7 +415,7 @@
         <!--Setting NameVC-->
         <scene sceneID="GKJ-Zw-R9V">
             <objects>
-                <viewController id="G91-GO-qwE" customClass="SettingNameVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingNameVC" storyboardIdentifier="SettingNameVC" id="G91-GO-qwE" customClass="SettingNameVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pzL-lD-X9y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -438,10 +438,10 @@
             </objects>
             <point key="canvasLocation" x="-3858" y="-772"/>
         </scene>
-        <!--Setting CategoryVC-->
+        <!--SettingCategoryVC-->
         <scene sceneID="s6z-N8-3tL">
             <objects>
-                <viewController id="0PA-Jc-X7e" customClass="SettingCategoryVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingCategoryVC" storyboardIdentifier="SettingCategoryVC" title="SettingCategoryVC" id="0PA-Jc-X7e" customClass="SettingCategoryVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gRg-Q9-Hr4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,12 +451,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21r-UZ-M4Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3142" y="-772"/>
+            <point key="canvasLocation" x="-3142.0289855072465" y="-772.09821428571422"/>
         </scene>
         <!--Setting Push TimeVC-->
         <scene sceneID="TsM-ak-HbO">
             <objects>
-                <viewController id="NTV-dJ-VUv" customClass="SettingPushTimeVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingPushTimeVC" storyboardIdentifier="SettingPushTimeVC" id="NTV-dJ-VUv" customClass="SettingPushTimeVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gVI-Z8-eL5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -471,7 +471,7 @@
         <!--Setting Profile ImageVC-->
         <scene sceneID="BJq-Wa-zNh">
             <objects>
-                <viewController id="JoI-zr-c5V" customClass="SettingProfileImageVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingProfileImageVC" storyboardIdentifier="SettingProfileImageVC" id="JoI-zr-c5V" customClass="SettingProfileImageVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sd4-Cp-YIy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
