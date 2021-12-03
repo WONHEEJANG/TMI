@@ -14,7 +14,8 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     var isFirst : Bool = true
     
     var TitleLabel = UILabel()
-    var SubTitleLabel = UILabel()
+    var SubTitleLabel = VerticalAlignLabel()
+    
     //    var textField = UITextField()
     @IBOutlet weak var textField: UITextField!
     
@@ -40,7 +41,8 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
             const.left.equalTo(view.snp.left).offset(DeviceWidth * 0.1)
         }
         
-        //        SubTitleLabel.backgroundColor = .orange
+//                SubTitleLabel.backgroundColor = .orange
+        SubTitleLabel.verticalAlignment = .top
         SubTitleLabel.text = "안녕하세요!\n닉네임을 지어주세요."
         SubTitleLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 22)
         SubTitleLabel.numberOfLines = 2

@@ -14,7 +14,7 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
     var isFirst : Bool = true
     
     var TitleLabel = UILabel()
-    var SubTitleLabel = UILabel()
+    var SubTitleLabel = VerticalAlignLabel()
     var CategoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     override func viewDidLoad() {
@@ -43,10 +43,12 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
             const.left.equalTo(view.snp.left).offset(DeviceWidth * 0.1)
         }
         
+        SubTitleLabel.verticalAlignment = .top
         SubTitleLabel.text = "쓸모는 딱히 없는데..\n괜히 알고싶은 분야 있으세요?"
         SubTitleLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 22)
         SubTitleLabel.numberOfLines = 3
         SubTitleLabel.lineBreakMode = .byTruncatingTail
+        
         
         SubTitleLabel.snp.makeConstraints { const in
             const.top.equalTo(TitleLabel.snp.bottom).offset(DeviceHeight * 0.05)
