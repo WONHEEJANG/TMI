@@ -15,7 +15,9 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     
     var TitleLabel = UILabel()
     var SubTitleLabel = UILabel()
-    var textField = UITextField()
+    //    var textField = UITextField()
+    @IBOutlet weak var textField: UITextField!
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.textField.becomeFirstResponder()
@@ -28,35 +30,37 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         self.view.addSubview(SubTitleLabel)
         self.view.addSubview(textField)
         
-        TitleLabel.backgroundColor = .red
+        //        TitleLabel.backgroundColor = .red
         TitleLabel.text = "🍞➕"
-        TitleLabel.font = TitleLabel.font.withSize(30)
+        TitleLabel.font = TitleLabel.font.withSize(40)
         
         TitleLabel.snp.makeConstraints { const in
             const.top.equalTo(view.snp.top).offset(DeviceHeight * 0.1)
-            const.size.equalTo(CGSize(width: DeviceWidth * 0.8, height: DeviceHeight * 0.03))
+            const.size.equalTo(CGSize(width: DeviceWidth * 0.8, height: DeviceHeight * 0.05))
             const.left.equalTo(view.snp.left).offset(DeviceWidth * 0.1)
         }
         
-        SubTitleLabel.backgroundColor = .orange
+        //        SubTitleLabel.backgroundColor = .orange
         SubTitleLabel.text = "안녕하세요!\n닉네임을 지어주세요."
-        SubTitleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        SubTitleLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 25)
         SubTitleLabel.numberOfLines = 2
         
         SubTitleLabel.snp.makeConstraints { const in
-            const.top.equalTo(TitleLabel.snp.bottom).offset(DeviceHeight * 0.03)
+            const.top.equalTo(TitleLabel.snp.bottom).offset(DeviceHeight * 0.05)
             const.size.equalTo(CGSize(width: DeviceWidth * 0.8, height: DeviceHeight * 0.1))
             const.left.equalTo(TitleLabel.snp.left)
         }
         
+        
+        
         setKeyboardObserver()
         textField.delegate = self
-        textField.backgroundColor = .orange
+        //        textField.backgroundColor = .orange
         textField.textAlignment = .center
         
         textField.snp.makeConstraints { const in
             const.centerX.equalTo(view.snp.centerX)
-            const.centerY.equalTo(view.snp.centerY)
+            const.centerY.equalTo(view.snp.centerY).offset(DeviceHeight * -0.03)
             const.size.equalTo(CGSize(width: DeviceWidth * 0.8, height: DeviceHeight * 0.1))
         }
         
@@ -67,6 +71,7 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.textField.resignFirstResponder()
     }
+    
 }
 
 extension SettingNameVC {
@@ -81,9 +86,9 @@ extension SettingNameVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            UIView.animate(withDuration: 1) {
-                self.view.layoutIfNeeded()
-            }
+            //            UIView.animate(withDuration: 1) {
+            //                self.view.layoutIfNeeded()
+            //            }
         }
         print("keyboardwillshow")
     }
@@ -93,9 +98,9 @@ extension SettingNameVC {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             
-            UIView.animate(withDuration: 1) {
-                self.view.layoutIfNeeded()
-            }
+            //            UIView.animate(withDuration: 1) {
+            //                self.view.layoutIfNeeded()
+            //            }
         }
         print("keyboardwillhide")
     }

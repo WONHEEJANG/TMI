@@ -31,6 +31,12 @@
 		962E31EA2758DD6800DEB35F /* SettingCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31E92758DD6800DEB35F /* SettingCategoryVC.swift */; };
 		962E31EC2758DD7200DEB35F /* SettingPushTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31EB2758DD7200DEB35F /* SettingPushTimeVC.swift */; };
 		962E31EE2758DD7C00DEB35F /* SettingProfileImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E31ED2758DD7C00DEB35F /* SettingProfileImageVC.swift */; };
+		962E31F72758E77F00DEB35F /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 962E31F02758E38A00DEB35F /* SpoqaHanSansNeo-Bold.otf */; };
+		962E31F82758E78200DEB35F /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 962E31F52758E38C00DEB35F /* SpoqaHanSansNeo-Light.otf */; };
+		962E31F92758E78600DEB35F /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 962E31F12758E38B00DEB35F /* SpoqaHanSansNeo-Medium.otf */; };
+		962E31FA2758E78900DEB35F /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 962E31F32758E38B00DEB35F /* SpoqaHanSansNeo-Regular.otf */; };
+		962E31FB2758E78C00DEB35F /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 962E31F42758E38C00DEB35F /* SpoqaHanSansNeo-Thin.otf */; };
+		962E31FC2758EB8600DEB35F /* ChangwonDangamAsac-Bold_0712.otf in Resources */ = {isa = PBXBuildFile; fileRef = 962E31F22758E38B00DEB35F /* ChangwonDangamAsac-Bold_0712.otf */; };
 		96D6B5A4273A922100EAA211 /* TMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A3273A922100EAA211 /* TMI.swift */; };
 		96D6B5A6273A927A00EAA211 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A5273A927A00EAA211 /* User.swift */; };
 		96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */; };
@@ -102,6 +108,12 @@
 		962E31E92758DD6800DEB35F /* SettingCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCategoryVC.swift; sourceTree = "<group>"; };
 		962E31EB2758DD7200DEB35F /* SettingPushTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPushTimeVC.swift; sourceTree = "<group>"; };
 		962E31ED2758DD7C00DEB35F /* SettingProfileImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileImageVC.swift; sourceTree = "<group>"; };
+		962E31F02758E38A00DEB35F /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
+		962E31F12758E38B00DEB35F /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
+		962E31F22758E38B00DEB35F /* ChangwonDangamAsac-Bold_0712.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ChangwonDangamAsac-Bold_0712.otf"; sourceTree = "<group>"; };
+		962E31F32758E38B00DEB35F /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
+		962E31F42758E38C00DEB35F /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; };
+		962E31F52758E38C00DEB35F /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; };
 		96D6B5A3273A922100EAA211 /* TMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMI.swift; sourceTree = "<group>"; };
 		96D6B5A5273A927A00EAA211 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96D6B5A9273AD09000EAA211 /* TMI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMI.entitlements; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 				96D6B5CC27488CCF00EAA211 /* ViewController */,
 				96D6B5CB27488C5600EAA211 /* Transition */,
 				96D6B5CD27488CF300EAA211 /* Model */,
+				962E31EF2758E32200DEB35F /* Font */,
 				96D6B5CE27488E4300EAA211 /* Images */,
 				4B15144B2738D2A80046E22C /* Main.storyboard */,
 				4B15144E2738D2A90046E22C /* Assets.xcassets */,
@@ -224,6 +237,19 @@
 				962E31ED2758DD7C00DEB35F /* SettingProfileImageVC.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		962E31EF2758E32200DEB35F /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				962E31F22758E38B00DEB35F /* ChangwonDangamAsac-Bold_0712.otf */,
+				962E31F02758E38A00DEB35F /* SpoqaHanSansNeo-Bold.otf */,
+				962E31F52758E38C00DEB35F /* SpoqaHanSansNeo-Light.otf */,
+				962E31F12758E38B00DEB35F /* SpoqaHanSansNeo-Medium.otf */,
+				962E31F32758E38B00DEB35F /* SpoqaHanSansNeo-Regular.otf */,
+				962E31F42758E38C00DEB35F /* SpoqaHanSansNeo-Thin.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		96D6B5CB27488C5600EAA211 /* Transition */ = {
@@ -414,8 +440,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9627A3462751326D002B6BE0 /* login-main.png in Resources */,
+				962E31FB2758E78C00DEB35F /* SpoqaHanSansNeo-Thin.otf in Resources */,
+				962E31F82758E78200DEB35F /* SpoqaHanSansNeo-Light.otf in Resources */,
 				4B1514522738D2A90046E22C /* LaunchScreen.storyboard in Resources */,
+				962E31FA2758E78900DEB35F /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				96D6B5B0274152C900EAA211 /* GoogleService-Info.plist in Resources */,
+				962E31FC2758EB8600DEB35F /* ChangwonDangamAsac-Bold_0712.otf in Resources */,
 				9627A3512751485C002B6BE0 /* icon-following.png in Resources */,
 				9627A34227513260002B6BE0 /* kakao-login.png in Resources */,
 				96D6B5D427488E5D00EAA211 /* icon-home.png in Resources */,
@@ -427,6 +457,8 @@
 				9627A3522751485C002B6BE0 /* icon-best.png in Resources */,
 				96D6B5D227488E5D00EAA211 /* icon-plus.png in Resources */,
 				962E31E42758D32B00DEB35F /* profile-sample.png in Resources */,
+				962E31F72758E77F00DEB35F /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				962E31F92758E78600DEB35F /* SpoqaHanSansNeo-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
