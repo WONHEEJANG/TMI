@@ -39,10 +39,11 @@ class LoginViewController: UIViewController {
     }
     
     func PresentWhenLoginComplete(){
-        let view = self.storyboard?.instantiateViewController(withIdentifier: "TMITabBarViewController")
+        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingNaviController")
 //        view?.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-        view?.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(view!, animated: true, completion: nil)
+        settingVC?.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        self.present(settingVC!, animated: true, completion: nil)
+//        self.show(settingVC!, sender: nil)
     }
 
     

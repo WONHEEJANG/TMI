@@ -16,6 +16,8 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
     var TitleLabel = UILabel()
     var SubTitleLabel = VerticalAlignLabel()
     var CategoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    var ConfirmBtn = UIButton(type: .system)
+    var BackBtn = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +29,12 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
         self.view.addSubview(TitleLabel)
         self.view.addSubview(SubTitleLabel)
         self.view.addSubview(CategoryCollectionView)
+        self.view.addSubview(ConfirmBtn)
+        self.view.addSubview(BackBtn)
         
-//        TitleLabel.backgroundColor = .red
-//        SubTitleLabel.backgroundColor = .orange
-//        CategoryCollectionView.backgroundColor = .blue
+        //        TitleLabel.backgroundColor = .red
+        //        SubTitleLabel.backgroundColor = .orange
+        //        CategoryCollectionView.backgroundColor = .blue
         
         
         
@@ -62,6 +66,38 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
             const.trailing.equalTo(SubTitleLabel.snp.trailing)
             const.bottom.equalTo(view.snp.bottom)
         }
+        BackBtn.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.13)
+        BackBtn.layer.cornerRadius = 20
+        BackBtn.setTitle("이전으로", for: .normal)
+        BackBtn.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.58), for: .normal)
+        BackBtn.titleLabel?.font = UIFont(name: "SpoqaHanSansNeo-Medium", size: 20)
+        
+        BackBtn.snp.makeConstraints { const in
+            const.leading.equalTo(TitleLabel.snp.leading)
+            const.bottom.equalTo(view.snp.bottom).offset(DeviceHeight * -0.05)
+            const.size.equalTo(CGSize(width: DeviceWidth * 0.375, height: DeviceHeight * 0.06))
+        }
+        
+        let tapBackBtnGesture = UITapGestureRecognizer(target: self, action: #selector (tapBackBtn))
+        tapBackBtnGesture.numberOfTapsRequired = 1
+        BackBtn.addGestureRecognizer(tapBackBtnGesture)
+        
+        ConfirmBtn.backgroundColor = .black
+        ConfirmBtn.layer.cornerRadius = 20
+        ConfirmBtn.setTitle("선택완료", for: .normal)
+        ConfirmBtn.setTitleColor(UIColor(red: 255, green: 255, blue: 255, alpha: 1), for: .normal)
+        ConfirmBtn.titleLabel?.font = UIFont(name: "SpoqaHanSansNeo-Medium", size: 20)
+        
+        ConfirmBtn.snp.makeConstraints { const in
+            const.trailing.equalTo(TitleLabel.snp.trailing)
+            const.bottom.equalTo(view.snp.bottom).offset(DeviceHeight * -0.05)
+            const.size.equalTo(CGSize(width: DeviceWidth * 0.375, height: DeviceHeight * 0.06))
+        }
+        
+        let tapConfirmBtnGesture = UITapGestureRecognizer(target: self, action: #selector (tapConfirmBtn))
+        tapConfirmBtnGesture.numberOfTapsRequired = 1
+        ConfirmBtn.addGestureRecognizer(tapConfirmBtnGesture)
+        
     }
     func registerCollectionView() {
         CategoryCollectionView.register(SettingCategoryCell.classForCoder(), forCellWithReuseIdentifier: "SettingCategoryCell")
@@ -73,6 +109,19 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
 }
 
 extension SettingCategoryVC: UICollectionViewDataSource {
+    @objc func tapConfirmBtn() {
+        print("tapConfirmBtn")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "SettingPushTimeVC") as! SettingPushTimeVC
+        
+        self.show(nextVC, sender: nil)
+    }
+    
+    @objc func tapBackBtn() {
+        print("tapBackBtn")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 16
@@ -85,7 +134,7 @@ extension SettingCategoryVC: UICollectionViewDataSource {
         }
         cell.updateData()
         cell.setupCell()
-//        cell.backgroundColor = .yellow
+        //        cell.backgroundColor = .yellow
         
         return cell
     }

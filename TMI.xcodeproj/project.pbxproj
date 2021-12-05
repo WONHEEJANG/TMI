@@ -40,6 +40,8 @@
 		962E32022759B94400DEB35F /* SettingCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E32012759B94400DEB35F /* SettingCategoryCell.swift */; };
 		962E32042759DD8F00DEB35F /* category-wine.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E32032759DD8F00DEB35F /* category-wine.png */; };
 		962E32062759EEB900DEB35F /* VerticalAlignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E32052759EEB900DEB35F /* VerticalAlignLabel.swift */; };
+		962E3208275A598400DEB35F /* JJANGU.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E3207275A598400DEB35F /* JJANGU.png */; };
+		962E320C275BE05F00DEB35F /* SettingNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E320B275BE05F00DEB35F /* SettingNaviController.swift */; };
 		96D6B5A4273A922100EAA211 /* TMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A3273A922100EAA211 /* TMI.swift */; };
 		96D6B5A6273A927A00EAA211 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A5273A927A00EAA211 /* User.swift */; };
 		96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */; };
@@ -120,6 +122,8 @@
 		962E32012759B94400DEB35F /* SettingCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCategoryCell.swift; sourceTree = "<group>"; };
 		962E32032759DD8F00DEB35F /* category-wine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category-wine.png"; sourceTree = "<group>"; };
 		962E32052759EEB900DEB35F /* VerticalAlignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAlignLabel.swift; sourceTree = "<group>"; };
+		962E3207275A598400DEB35F /* JJANGU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JJANGU.png; sourceTree = "<group>"; };
+		962E320B275BE05F00DEB35F /* SettingNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNaviController.swift; sourceTree = "<group>"; };
 		96D6B5A3273A922100EAA211 /* TMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMI.swift; sourceTree = "<group>"; };
 		96D6B5A5273A927A00EAA211 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96D6B5A9273AD09000EAA211 /* TMI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMI.entitlements; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		962E31E62758DD4700DEB35F /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				962E320B275BE05F00DEB35F /* SettingNaviController.swift */,
 				962E31E72758DD5C00DEB35F /* SettingNameVC.swift */,
 				962E31E92758DD6800DEB35F /* SettingCategoryVC.swift */,
 				962E32012759B94400DEB35F /* SettingCategoryCell.swift */,
@@ -274,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				962E31E62758DD4700DEB35F /* Setting */,
+				96D6B5B1274159C900EAA211 /* LoginViewController.swift */,
 				4B1514492738D2A80046E22C /* FeedViewController.swift */,
 				4B1514792738D7780046E22C /* TMICollectionViewCell.swift */,
 				4B15147B2738D79E0046E22C /* TMICollectionHeaderView.swift */,
@@ -281,7 +287,6 @@
 				4B1514752738D2E10046E22C /* WritingViewController.swift */,
 				96D6B5C92748016C00EAA211 /* TMITabBarViewController.swift */,
 				4B1514772738D5590046E22C /* MyViewController.swift */,
-				96D6B5B1274159C900EAA211 /* LoginViewController.swift */,
 				96D6B5B32741651900EAA211 /* UserFeedViewController.swift */,
 				962E32052759EEB900DEB35F /* VerticalAlignLabel.swift */,
 			);
@@ -311,6 +316,7 @@
 				9627A3452751326D002B6BE0 /* login-main.png */,
 				962E31E32758D32B00DEB35F /* profile-sample.png */,
 				962E32032759DD8F00DEB35F /* category-wine.png */,
+				962E3207275A598400DEB35F /* JJANGU.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				96D6B5B0274152C900EAA211 /* GoogleService-Info.plist in Resources */,
 				962E31FC2758EB8600DEB35F /* ChangwonDangamAsac-Bold_0712.otf in Resources */,
 				9627A3512751485C002B6BE0 /* icon-following.png in Resources */,
+				962E3208275A598400DEB35F /* JJANGU.png in Resources */,
 				9627A34227513260002B6BE0 /* kakao-login.png in Resources */,
 				96D6B5D427488E5D00EAA211 /* icon-home.png in Resources */,
 				96D6B5D327488E5D00EAA211 /* icon-my.png in Resources */,
@@ -618,6 +625,7 @@
 				96D6B5CA2748016C00EAA211 /* TMITabBarViewController.swift in Sources */,
 				962E315F27535A0200DEB35F /* DismissAnimator.swift in Sources */,
 				96D6B5C42747DB7100EAA211 /* Presentation.swift in Sources */,
+				962E320C275BE05F00DEB35F /* SettingNaviController.swift in Sources */,
 				4B15147C2738D79E0046E22C /* TMICollectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G91-GO-qwE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z2a-Fc-sVB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -389,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygt-8g-Fgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4736" y="-772"/>
+            <point key="canvasLocation" x="-5593" y="-772"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="X3H-s3-7q8">
@@ -412,27 +412,33 @@
             </objects>
             <point key="canvasLocation" x="-776" y="-772"/>
         </scene>
-        <!--Setting NameVC-->
+        <!--SettingNaviController-->
+        <scene sceneID="cuB-rQ-eZ2">
+            <objects>
+                <navigationController restorationIdentifier="SettingNaviController" storyboardIdentifier="SettingNaviController" title="SettingNaviController" id="54a-dB-N4x" customClass="SettingNaviController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ftt-nT-cWA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="G91-GO-qwE" kind="relationship" relationship="rootViewController" id="BX2-ee-u8X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n9L-y4-Wtc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4710" y="-772"/>
+        </scene>
+        <!--SettingNameVC-->
         <scene sceneID="GKJ-Zw-R9V">
             <objects>
-                <viewController restorationIdentifier="SettingNameVC" storyboardIdentifier="SettingNameVC" id="G91-GO-qwE" customClass="SettingNameVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SettingNameVC" storyboardIdentifier="SettingNameVC" title="SettingNameVC" id="G91-GO-qwE" customClass="SettingNameVC" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pzL-lD-X9y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vWk-Cq-Bh7">
-                                <rect key="frame" x="159" y="431" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CWDangamAsac-Bold" family="ChangwonDangamAsac" pointSize="40"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="y1C-zi-vdG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <outlet property="textField" destination="vWk-Cq-Bh7" id="bhl-Jp-69x"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="MSG-rz-QWb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCp-Yy-VsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -448,6 +454,7 @@
                         <viewLayoutGuide key="safeArea" id="xjp-Zi-VZ8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0ug-xr-FAA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21r-UZ-M4Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
