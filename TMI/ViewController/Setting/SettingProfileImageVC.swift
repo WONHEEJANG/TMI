@@ -53,7 +53,8 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
         //        DescriptionLabel.backgroundColor = .green
         //        updateImgBtn.backgroundColor = .darkGray
         
-        
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.tabBarItem = nil
         TitleLabel.text = "🍞➕🧀➕🍅➕🥑"
         TitleLabel.font = TitleLabel.font.withSize(25)
         

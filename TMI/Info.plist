@@ -45,6 +45,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>프로필 설정을 위해 사진첩 권한을 허용합니다.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>프로필 설정을 위해 카메라 권한을 허용합니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

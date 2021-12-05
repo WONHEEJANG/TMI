@@ -25,6 +25,7 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
         registerCollectionView()
         collectionViewDelegate()
         
+        self.navigationItem.hidesBackButton = true
         
         self.view.addSubview(TitleLabel)
         self.view.addSubview(SubTitleLabel)
@@ -39,7 +40,7 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
         
         
         TitleLabel.text = "🍞➕🧀"
-        TitleLabel.font = TitleLabel.font.withSize(40)
+        TitleLabel.font = TitleLabel.font.withSize(25)
         
         TitleLabel.snp.makeConstraints { const in
             const.top.equalTo(view.snp.top).offset(DeviceHeight * 0.1)
@@ -170,5 +171,16 @@ extension SettingCategoryVC: UICollectionViewDelegateFlowLayout {
         let width: CGFloat = UIScreen.main.bounds.width * 0.15 // 디바이스 너비
         let height: CGFloat = UIScreen.main.bounds.height * 0.12 // 디바이스 높이
         return CGSize(width: width, height: height)
+    }
+}
+
+extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate {
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = self
+    }
+
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return viewControllers.count > 1
     }
 }

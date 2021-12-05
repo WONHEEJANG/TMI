@@ -26,6 +26,8 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         self.view.addSubview(TitleLabel)
         self.view.addSubview(SubTitleLabel)
         self.view.addSubview(textField)
@@ -36,7 +38,7 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         //        textField.backgroundColor = .orange
         
         TitleLabel.text = "🍞➕"
-        TitleLabel.font = TitleLabel.font.withSize(40)
+        TitleLabel.font = TitleLabel.font.withSize(25)
         
         TitleLabel.snp.makeConstraints { const in
             const.top.equalTo(view.snp.top).offset(DeviceHeight * 0.1)

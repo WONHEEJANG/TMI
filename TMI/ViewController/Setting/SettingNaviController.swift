@@ -5,9 +5,8 @@ class SettingNaviController:UINavigationController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextVC = storyboard.instantiateViewController(withIdentifier: "SettingNameVC") as! SettingNameVC
-        
-//        self.pushViewController(nextVC, animated: true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let nextVC = storyboard.instantiateViewController(withIdentifier: "SettingNameVC") as! SettingNameVC
+////        self.pushViewController(nextVC, animated: true)
     }
 }

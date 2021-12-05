@@ -45,15 +45,18 @@ class SettingPushTimeVC: UIViewController,UITextFieldDelegate{
         self.view.addSubview(ConfirmBtn)
         self.view.addSubview(BackBtn)
         
+        
+        
         TimePickerView.addSubview(HourIndicatorView)
         TimePickerView.addSubview(MinuteIndicatorView)
         
 //        TitleLabel.backgroundColor = .red
 //        SubTitleLabel.backgroundColor = .orange
         
+        self.navigationItem.hidesBackButton = true
         
         TitleLabel.text = "🍞➕🧀➕🍅"
-        TitleLabel.font = TitleLabel.font.withSize(40)
+        TitleLabel.font = TitleLabel.font.withSize(25)
         
         TitleLabel.snp.makeConstraints { const in
             const.top.equalTo(view.snp.top).offset(DeviceHeight * 0.1)

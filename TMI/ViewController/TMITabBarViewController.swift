@@ -4,6 +4,9 @@ class TMITabBarViewController:UITabBarController{
     override func viewDidLoad() {
             super.viewDidLoad()
         setupStyle()
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
         }
     override func viewDidDisappear(_ animated: Bool) {
@@ -13,7 +16,6 @@ class TMITabBarViewController:UITabBarController{
     func setupStyle() {
             UITabBar.clearShadow()
             tabBar.layer.applyShadow(color: .gray, alpha: 0.3, x: 0, y: 0, blur: 12)
-//        tabBar.layer.applyShadow(color: .black, alpha: 0, x: 0, y: 0, blur: 12)
         }
 }
 
