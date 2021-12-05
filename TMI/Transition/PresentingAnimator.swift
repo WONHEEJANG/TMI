@@ -37,9 +37,20 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         //        containerView.alpha = 1.0
-        
-        guard let fromVC = transitionContext.viewController(forKey: .from) as? TMITabBarViewController else {fatalError()}
+
+        guard let SettingNaviC = transitionContext.viewController(forKey: .from) as? SettingNaviController else {fatalError()}
+        guard let fromVC = SettingNaviC.topViewController as? TMITabBarViewController else {fatalError()}
         guard let feedVC = fromVC.children[0] as? FeedViewController else {fatalError()}
+        
+        //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
+        //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
+        //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
+        
+//        guard let fromVC = transitionContext.viewController(forKey: .from) as? TMITabBarViewController else {fatalError()}
+//        guard let feedVC = fromVC.children[0] as? FeedViewController else {fatalError()}
+        
+        
+        
         guard let contentVC = transitionContext.viewController(forKey: .to) as? TMIDetailViewController else {fatalError()}
         
         guard let fromView = fromVC.view else {fatalError()}

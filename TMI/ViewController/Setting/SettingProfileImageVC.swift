@@ -217,8 +217,13 @@ extension SettingProfileImageVC: UIImagePickerControllerDelegate, UINavigationCo
         print("tapConfirmBtn")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "TMITabBarViewController") as! TMITabBarViewController
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
+        self.navigationController?.removeFromParent()
         self.show(nextVC, sender: nil)
+//        self.navigationController?.dismiss(animated: true){
+//            self.present(nextVC, animated: true, completion: nil)
+//        }
     }
     
     @objc func tapBackBtn() {

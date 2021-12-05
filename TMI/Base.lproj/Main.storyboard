@@ -373,10 +373,10 @@
             </objects>
             <point key="canvasLocation" x="1081" y="-449"/>
         </scene>
-        <!--Login View Controller-->
+        <!--LoginViewController-->
         <scene sceneID="2Vh-Zj-h8g">
             <objects>
-                <viewController id="z2a-Fc-sVB" customClass="LoginViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginViewController" storyboardIdentifier="LoginViewController" title="LoginViewController" id="z2a-Fc-sVB" customClass="LoginViewController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DV7-Yp-LI0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
