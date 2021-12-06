@@ -113,13 +113,13 @@ extension SettingNameVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 10) {
                 self.ConfirmBtn.snp.remakeConstraints { const in
                     const.centerX.equalTo(self.view.snp.centerX)
                     const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05 - keyboardHeight)
                     const.size.equalTo(CGSize(width: self.DeviceWidth * 0.8, height: self.DeviceHeight * 0.06))
                 }
-//                self.ConfirmBtn.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             }
         }
         print("keyboardwillshow")
@@ -129,13 +129,13 @@ extension SettingNameVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: 10) {
                 self.ConfirmBtn.snp.remakeConstraints { const in
                     const.centerX.equalTo(self.view.snp.centerX)
                     const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05)
                     const.size.equalTo(CGSize(width: self.DeviceWidth * 0.8, height: self.DeviceHeight * 0.06))
                 }
-//                self.ConfirmBtn.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             }
         }
         print("keyboardwillhide")

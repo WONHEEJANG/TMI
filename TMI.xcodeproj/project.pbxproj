@@ -42,6 +42,7 @@
 		962E32062759EEB900DEB35F /* VerticalAlignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E32052759EEB900DEB35F /* VerticalAlignLabel.swift */; };
 		962E3208275A598400DEB35F /* JJANGU.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E3207275A598400DEB35F /* JJANGU.png */; };
 		962E320C275BE05F00DEB35F /* SettingNaviController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E320B275BE05F00DEB35F /* SettingNaviController.swift */; };
+		962E320E275DB55300DEB35F /* icon-setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E320D275DB55200DEB35F /* icon-setting.png */; };
 		96D6B5A4273A922100EAA211 /* TMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A3273A922100EAA211 /* TMI.swift */; };
 		96D6B5A6273A927A00EAA211 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D6B5A5273A927A00EAA211 /* User.swift */; };
 		96D6B5AC273AD7C200EAA211 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D6B5AB273AD7C200EAA211 /* UserNotifications.framework */; };
@@ -124,6 +125,7 @@
 		962E32052759EEB900DEB35F /* VerticalAlignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAlignLabel.swift; sourceTree = "<group>"; };
 		962E3207275A598400DEB35F /* JJANGU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JJANGU.png; sourceTree = "<group>"; };
 		962E320B275BE05F00DEB35F /* SettingNaviController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingNaviController.swift; sourceTree = "<group>"; };
+		962E320D275DB55200DEB35F /* icon-setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-setting.png"; sourceTree = "<group>"; };
 		96D6B5A3273A922100EAA211 /* TMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMI.swift; sourceTree = "<group>"; };
 		96D6B5A5273A927A00EAA211 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96D6B5A9273AD09000EAA211 /* TMI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TMI.entitlements; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				96D6B5D027488E5D00EAA211 /* icon-my.png */,
 				96D6B5CF27488E5C00EAA211 /* icon-plus.png */,
 				9627A3492751330A002B6BE0 /* Feed-Header.png */,
+				962E320D275DB55200DEB35F /* icon-setting.png */,
 				9627A34127513260002B6BE0 /* kakao-login.png */,
 				9627A3502751485C002B6BE0 /* icon-best.png */,
 				9627A34F2751485C002B6BE0 /* icon-following.png */,
@@ -456,6 +459,7 @@
 			files = (
 				9627A3462751326D002B6BE0 /* login-main.png in Resources */,
 				962E31FB2758E78C00DEB35F /* SpoqaHanSansNeo-Thin.otf in Resources */,
+				962E320E275DB55300DEB35F /* icon-setting.png in Resources */,
 				962E31F82758E78200DEB35F /* SpoqaHanSansNeo-Light.otf in Resources */,
 				4B1514522738D2A90046E22C /* LaunchScreen.storyboard in Resources */,
 				962E31FA2758E78900DEB35F /* SpoqaHanSansNeo-Regular.otf in Resources */,
