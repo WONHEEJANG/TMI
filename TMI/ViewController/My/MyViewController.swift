@@ -38,11 +38,20 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     var updateImgBtn = UIButton()
     var alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     let imagePicker = UIImagePickerController()
+    
     let ALERT_FailToTakePhoto = UIAlertController(title: "Missing camera", message: "You can't take photo, there is no camera.", preferredStyle: UIAlertController.Style.alert)
+    
+    var MyWritingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    
+    var MySavingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        registerCollectionView()
+        collectionViewDelegate()
         
         self.imagePicker.allowsEditing = true // 수정 가능 여부
         self.imagePicker.delegate = self // picker delegate
@@ -71,6 +80,9 @@ class MyViewController: UIViewController,UITextFieldDelegate {
 
         self.view.addSubview(underLine)
         self.view.addSubview(targetLine)
+        
+        self.view.addSubview(MyWritingTMICollectionView)
+//        self.view.addSubview(MySavingTMICollectionView)
         
         //        TitleLabel.backgroundColor = .red
         //        SoonLabel.backgroundColor = .blue
@@ -289,6 +301,13 @@ class MyViewController: UIViewController,UITextFieldDelegate {
             const.bottom.equalTo(FollowingTitle.snp.bottom)
         }
         
+        MyWritingTMICollectionView.snp.makeConstraints{ const in
+            const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
+            const.leading.equalTo(view.snp.leading)
+            const.trailing.equalTo(view.snp.trailing)
+            const.bottom.equalTo(view.snp.bottom)
+        }
+        
         let tapWritingBtnGesture = UITapGestureRecognizer(target: self, action: #selector (tapWritingBtn))
         tapWritingBtnGesture.numberOfTapsRequired = 1
         WritingBtn.addGestureRecognizer(tapWritingBtnGesture)
@@ -310,7 +329,15 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     }
     @objc func tapWritingBtn() {
         print("tapWritingBtn")
-    
+        
+        self.view.addSubview(MyWritingTMICollectionView)
+        MyWritingTMICollectionView.snp.makeConstraints{ const in
+            const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
+            const.leading.equalTo(view.snp.leading)
+            const.trailing.equalTo(view.snp.trailing)
+            const.bottom.equalTo(view.snp.bottom)
+        }
+        
         UIView.animate(withDuration: 0.5) {
             self.targetLine.snp.remakeConstraints { const in
                 const.top.equalTo(self.FollowingTitle.snp.bottom).offset(self.DeviceHeight * 0.01)
@@ -322,12 +349,17 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     }
     @objc func tapSavingBtn() {
         print("tapSavingBtn")
+        
+        self.MyWritingTMICollectionView.removeFromSuperview()
+        
         UIView.animate(withDuration: 0.5) {
             self.targetLine.snp.remakeConstraints { const in
                 const.top.equalTo(self.FollowingTitle.snp.bottom).offset(self.DeviceHeight * 0.01)
                 const.size.equalTo(CGSize(width: self.DeviceWidth * 0.25, height: 2))
                 const.leading.equalTo(self.view.snp.leading).offset(self.DeviceWidth * 0.25)
             }
+            
+            
             self.view.layoutIfNeeded()
         }
     }
@@ -362,6 +394,18 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     @objc func pickImage(){
         self.present(self.imagePicker, animated: true)
     }
+    
+    func registerCollectionView() {
+        MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+        MySavingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+    }
+    func collectionViewDelegate() {
+        MyWritingTMICollectionView.delegate = self
+        MyWritingTMICollectionView.dataSource = self
+        
+        MySavingTMICollectionView.delegate = self
+        MySavingTMICollectionView.dataSource = self
+    }
 }
 
 extension MyViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -380,5 +424,46 @@ extension MyViewController: UIImagePickerControllerDelegate, UINavigationControl
         
         picker.dismiss(animated: true, completion: nil) // picker를 닫아줌
         
+    }
+}
+
+
+extension MyViewController: UICollectionViewDataSource {
+    
+    // 몇개 표시 할까?
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    // 셀 어떻게 표시 할까?
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyTMICell", for: indexPath) as? MyTMICell else {
+            return UICollectionViewCell()
+        }
+        cell.updateData(index: indexPath)
+        cell.setupCell()
+        
+        return cell
+    }
+}
+
+extension MyViewController: UICollectionViewDelegate {
+    // 클릭했을때 어떻게 할까?
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("tap => \(indexPath)")
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! MyTMICell
+    
+    }
+}
+
+extension MyViewController: UICollectionViewDelegateFlowLayout {
+    // 셀 사이즈 어떻게 할까?
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 20 - card(width) - 20
+        let width: CGFloat = collectionView.bounds.width - (20 * 2)
+        let height: CGFloat = width / 4
+        return CGSize(width: width, height: height)
     }
 }

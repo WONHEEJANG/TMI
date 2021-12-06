@@ -176,6 +176,9 @@ enum GlobalConstants {
 extension UILabel {
     var toImage :UIImage?{
         UIGraphicsBeginImageContext(self.frame.size)
+        print("self.frame.size:\(self.frame.size)")
+        print("self.frame.minX:\(self.frame.minX)")
+        print("self.frame.minY:\(self.frame.minY)")
         if let currentContext = UIGraphicsGetCurrentContext() {
             self.layer.render(in: currentContext)
             let nameImage = UIGraphicsGetImageFromCurrentImageContext()
