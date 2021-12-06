@@ -16,7 +16,7 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     var TitleLabel = UILabel()
     var SubTitleLabel = VerticalAlignLabel()
     var ConfirmBtn = UIButton(type: .system)
-    //    @IBOutlet weak var textField: UITextField!
+    
     var textField = UITextField()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +33,9 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         self.view.addSubview(textField)
         self.view.addSubview(ConfirmBtn)
         
-        //        TitleLabel.backgroundColor = .red
-        //        SubTitleLabel.backgroundColor = .orange
-        //        textField.backgroundColor = .orange
+//                TitleLabel.backgroundColor = .red
+//                SubTitleLabel.backgroundColor = .orange
+//                textField.backgroundColor = .orange
         
         TitleLabel.text = "🍞➕"
         TitleLabel.font = TitleLabel.font.withSize(25)
@@ -61,10 +61,11 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         setKeyboardObserver()
         textField.delegate = self
         textField.textAlignment = .center
+        textField.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 30)
         
         textField.snp.makeConstraints { const in
             const.centerX.equalTo(view.snp.centerX)
-            const.centerY.equalTo(view.snp.centerY).offset(DeviceHeight * -0.03)
+            const.centerY.equalTo(view.snp.centerY).offset(DeviceHeight * -0.1)
             const.size.equalTo(CGSize(width: DeviceWidth * 0.8, height: DeviceHeight * 0.1))
         }
         
@@ -84,7 +85,7 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         tapConfirmBtnGesture.numberOfTapsRequired = 1
         ConfirmBtn.addGestureRecognizer(tapConfirmBtnGesture)
         
-        
+        print("ConfirmBtn.snp.bottom : \(ConfirmBtn.snp.bottom)")
         
     }
 }
@@ -112,9 +113,14 @@ extension SettingNameVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            //            UIView.animate(withDuration: 1) {
-            //                self.view.layoutIfNeeded()
-            //            }
+            UIView.animate(withDuration: 1) {
+                self.ConfirmBtn.snp.remakeConstraints { const in
+                    const.centerX.equalTo(self.view.snp.centerX)
+                    const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05 - keyboardHeight)
+                    const.size.equalTo(CGSize(width: self.DeviceWidth * 0.8, height: self.DeviceHeight * 0.06))
+                }
+//                self.ConfirmBtn.layoutIfNeeded()
+            }
         }
         print("keyboardwillshow")
     }
@@ -122,11 +128,15 @@ extension SettingNameVC {
     @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
             
-            //            UIView.animate(withDuration: 1) {
-            //                self.view.layoutIfNeeded()
-            //            }
+            UIView.animate(withDuration: 1) {
+                self.ConfirmBtn.snp.remakeConstraints { const in
+                    const.centerX.equalTo(self.view.snp.centerX)
+                    const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05)
+                    const.size.equalTo(CGSize(width: self.DeviceWidth * 0.8, height: self.DeviceHeight * 0.06))
+                }
+//                self.ConfirmBtn.layoutIfNeeded()
+            }
         }
         print("keyboardwillhide")
     }

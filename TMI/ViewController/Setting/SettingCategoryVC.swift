@@ -62,7 +62,7 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
         }
         
         CategoryCollectionView.snp.makeConstraints{ const in
-            const.top.equalTo(SubTitleLabel.snp.bottom).offset(DeviceHeight * 0.05)
+            const.top.equalTo(SubTitleLabel.snp.bottom)
             const.leading.equalTo(SubTitleLabel.snp.leading)
             const.trailing.equalTo(SubTitleLabel.snp.trailing)
             const.bottom.equalTo(view.snp.bottom)

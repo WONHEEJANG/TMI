@@ -87,7 +87,9 @@ class SettingPushTimeVC: UIViewController,UITextFieldDelegate{
         
         TimePickerView.delegate = self
         TimePickerView.dataSource = self
-    
+        TimePickerView.selectRow(11, inComponent: 0, animated: false)
+        TimePickerView.selectRow(11, inComponent: 1, animated: false)
+        
         TimePickerView.snp.makeConstraints { const in
             const.bottom.equalTo(view.snp.bottom).offset(DeviceHeight * -0.15)
             const.size.equalTo(CGSize(width: DeviceWidth, height: DeviceHeight * 0.4))
