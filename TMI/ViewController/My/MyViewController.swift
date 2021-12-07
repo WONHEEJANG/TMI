@@ -43,9 +43,7 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     
     let ALERT_FailToTakePhoto = UIAlertController(title: "Missing camera", message: "You can't take photo, there is no camera.", preferredStyle: UIAlertController.Style.alert)
     
-    var MyWritingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    
-//    var MySavingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    var MyTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     
     
@@ -83,8 +81,7 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         self.view.addSubview(underLine)
         self.view.addSubview(targetLine)
         
-        self.view.addSubview(MyWritingTMICollectionView)
-//        self.view.addSubview(MySavingTMICollectionView)
+        self.view.addSubview(MyTMICollectionView)
         
         //        TitleLabel.backgroundColor = .red
         //        SoonLabel.backgroundColor = .blue
@@ -313,7 +310,7 @@ class MyViewController: UIViewController,UITextFieldDelegate {
             const.bottom.equalTo(FollowingTitle.snp.bottom)
         }
         
-        MyWritingTMICollectionView.snp.makeConstraints{ const in
+        MyTMICollectionView.snp.makeConstraints{ const in
             const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
             const.leading.equalTo(view.snp.leading)
             const.trailing.equalTo(view.snp.trailing)
@@ -346,10 +343,10 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         switch NOW_SHOW {
         case "WRITING":
             print("REMOVE WRITING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "SAVING":
             print("REMOVE SAVING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "FOLLOWING":
             print("REMOVE FOLLOWING FROM SUPERVIEW")
         case "FOLLOWER":
@@ -363,15 +360,15 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         
         let writingCollectionViewFrame = CGRect(origin: CGPoint(x: targetLine.frame.minX, y: targetLine.frame.minY), size: CGSize(width: 0, height: 0))
         
-        MyWritingTMICollectionView = UICollectionView(frame: writingCollectionViewFrame, collectionViewLayout: UICollectionViewFlowLayout.init())
+        MyTMICollectionView = UICollectionView(frame: writingCollectionViewFrame, collectionViewLayout: UICollectionViewFlowLayout.init())
         
-        MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
-        MyWritingTMICollectionView.delegate = self
-        MyWritingTMICollectionView.dataSource = self
+        MyTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+        MyTMICollectionView.delegate = self
+        MyTMICollectionView.dataSource = self
         
-        self.view.addSubview(MyWritingTMICollectionView)
+        self.view.addSubview(MyTMICollectionView)
         
-        MyWritingTMICollectionView.snp.makeConstraints{ const in
+        MyTMICollectionView.snp.makeConstraints{ const in
             const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
             const.leading.equalTo(view.snp.leading)
             const.trailing.equalTo(view.snp.trailing)
@@ -404,10 +401,10 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         switch NOW_SHOW {
         case "WRITING":
             print("REMOVE WRITING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "SAVING":
             print("REMOVE SAVING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "FOLLOWING":
             print("REMOVE FOLLOWING FROM SUPERVIEW")
         case "FOLLOWER":
@@ -421,15 +418,15 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         
         let writingCollectionViewFrame = CGRect(origin: CGPoint(x: targetLine.frame.minX, y: targetLine.frame.minY), size: CGSize(width: DeviceWidth, height: 0))
         
-        MyWritingTMICollectionView = UICollectionView(frame: writingCollectionViewFrame, collectionViewLayout: UICollectionViewFlowLayout.init())
+        MyTMICollectionView = UICollectionView(frame: writingCollectionViewFrame, collectionViewLayout: UICollectionViewFlowLayout.init())
         
-        MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
-        MyWritingTMICollectionView.delegate = self
-        MyWritingTMICollectionView.dataSource = self
+        MyTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+        MyTMICollectionView.delegate = self
+        MyTMICollectionView.dataSource = self
         
-        self.view.addSubview(MyWritingTMICollectionView)
+        self.view.addSubview(MyTMICollectionView)
         
-        MyWritingTMICollectionView.snp.makeConstraints{ const in
+        MyTMICollectionView.snp.makeConstraints{ const in
             const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
             const.leading.equalTo(view.snp.leading)
             const.trailing.equalTo(view.snp.trailing)
@@ -461,10 +458,10 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         switch NOW_SHOW {
         case "WRITING":
             print("REMOVE WRITING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "SAVING":
             print("REMOVE SAVING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "FOLLOWING":
             print("REMOVE FOLLOWING FROM SUPERVIEW")
         case "FOLLOWER":
@@ -501,10 +498,10 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         switch NOW_SHOW {
         case "WRITING":
             print("REMOVE WRITING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "SAVING":
             print("REMOVE SAVING FROM SUPERVIEW")
-            self.MyWritingTMICollectionView.removeFromSuperview()
+            self.MyTMICollectionView.removeFromSuperview()
         case "FOLLOWING":
             print("REMOVE FOLLOWING FROM SUPERVIEW")
         case "FOLLOWER":
@@ -546,15 +543,11 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     }
     
     func registerCollectionView() {
-        MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
-//        MySavingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+        MyTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
     }
     func collectionViewDelegate() {
-        MyWritingTMICollectionView.delegate = self
-        MyWritingTMICollectionView.dataSource = self
-        
-//        MySavingTMICollectionView.delegate = self
-//        MySavingTMICollectionView.dataSource = self
+        MyTMICollectionView.delegate = self
+        MyTMICollectionView.dataSource = self
     }
 }
 

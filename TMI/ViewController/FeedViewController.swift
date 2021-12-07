@@ -14,6 +14,7 @@ class FeedViewController: UIViewController {
     var FeedToDetailTransition = TransitionController()
     
     let db = Database.database().reference()
+    
     @IBOutlet weak var TMICollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class FeedViewController: UIViewController {
         //푸시 권한 요청
         requestNotificationPermission()
         
-        db.child("firstData").observeSingleEvent(of: .value) { snapshot in
+        db.child("TMI").child("description").observeSingleEvent(of: .value) { snapshot in
             print("snapshot : \(snapshot)")
             print("VIEWDIDLOAD")
         }

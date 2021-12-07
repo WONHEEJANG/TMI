@@ -113,7 +113,7 @@ extension SettingNameVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            UIView.animate(withDuration: 10) {
+            UIView.animate(withDuration: 1) {
                 self.ConfirmBtn.snp.remakeConstraints { const in
                     const.centerX.equalTo(self.view.snp.centerX)
                     const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05 - keyboardHeight)
@@ -129,7 +129,7 @@ extension SettingNameVC {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             
-            UIView.animate(withDuration: 10) {
+            UIView.animate(withDuration: 1) {
                 self.ConfirmBtn.snp.remakeConstraints { const in
                     const.centerX.equalTo(self.view.snp.centerX)
                     const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05)

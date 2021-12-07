@@ -20,3 +20,29 @@ struct User {
     var FOLLOWERs : [User]
     var FOLLOWINGs : [User]
 }
+
+struct properties:Codable {
+    let nickname : String
+    let profile_image : String
+    let thumbnail_image : String
+    
+    enum CodingKeys: String, CodingKey {
+    case nickname
+    case profile_image
+    case thumbnail_image
+    }
+}
+
+struct UserResponse:Codable{
+    let id:Int
+    let connected_at : String
+    let properties : properties
+    
+    enum CodingKeys: String, CodingKey {
+    case id
+    case connected_at
+    case properties
+    }
+}
+
+

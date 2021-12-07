@@ -11,6 +11,8 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import KakaoSDKCommon
 import AuthenticationServices
+import Alamofire
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
@@ -24,9 +26,16 @@ class LoginViewController: UIViewController {
     var isLogin : Bool = false
     //    let appleButton = ASAuthorizationAppleIDButton()
     
+    let db = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db.child("TMI").child("description").observeSingleEvent(of: .value) { snapshot in
+            print("snapshot : \(snapshot)")
+            print("VIEWDIDLOAD")
+        }
+        
         
         if(!isLogin){
             setupLoginImgView()
@@ -40,12 +49,10 @@ class LoginViewController: UIViewController {
     
     func PresentWhenLoginComplete(){
         let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingNaviController")
-//        view?.modalTransitionStyle = UIModalTransitionStyle.partialCurl
         settingVC?.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(settingVC!, animated: true, completion: nil)
-//        self.show(settingVC!, sender: nil)
     }
-
+    
     
     func setupLoginImgView(){
         
@@ -102,6 +109,28 @@ class LoginViewController: UIViewController {
             const.trailing.equalToSuperview().offset(DeviceWidth * -0.1)
         }
     }
+    func getDataFromKaKaoLogin(accessToken : String){
+        let url = "https://kapi.kakao.com/v2/user/me"
+        
+        let headers : HTTPHeaders = [ "Authorization" : "Bearer \(accessToken)"]
+        
+        AF.request(url,headers: headers) //로그인한 사용자 정보 가져오기
+            .validate()
+            .responseDecodable(of: UserResponse.self) { response in
+                
+                switch response.result {
+                case .success(let response):
+                    print("DEBUG>> Success \(response) ")
+                    
+                    let userItemRef = self.db.child("userDB").child("kakao_\(response.id)") // 카카오 로그인 사용자 DB에 저장
+                    let values: [String: Any] = ["login":"kakao", "kakao_id": response.id, "last_connected_at": response.connected_at, "kakao_nickname": response.properties.nickname, "kakao_profile_imge":response.properties.profile_image,"kakao_thumbnail_image":response.properties.thumbnail_image ]
+                    userItemRef.setValue(values)
+                    
+                case .failure(let error):
+                    print("DEBUG>> Error : \(error.localizedDescription)")
+                }
+            }
+    }
     
     @objc func clickKakaoLogin(_ sender:UITapGestureRecognizer){
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
@@ -112,7 +141,11 @@ class LoginViewController: UIViewController {
                 print("loginWithKakaoAccount() success.")
                 _ = oauthToken
                 let accessToken = oauthToken?.accessToken
+                
                 print("accessToken:\(accessToken)")
+                
+                self.getDataFromKaKaoLogin(accessToken: accessToken ?? "")
+                
                 self.PresentWhenLoginComplete()
             }
         }
