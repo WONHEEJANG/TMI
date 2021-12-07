@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class MyViewController: UIViewController,UITextFieldDelegate {
+    var NOW_SHOW = "WRITING"
+    
     let DeviceHeight = UIScreen.main.bounds.height
     let DeviceWidth = UIScreen.main.bounds.width
     var SettingBtn = UIButton()
@@ -43,7 +45,7 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     
     var MyWritingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
-    var MySavingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+//    var MySavingTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     
     
@@ -209,6 +211,16 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         underLine.backgroundColor = .black
         targetLine.backgroundColor = .black
         
+        WritingTitle.alpha = 1
+        NumOfWriting.alpha = 1
+        SavingTitle.alpha = 0.1
+        NumOfSaving.alpha = 0.1
+        FollowingTitle.alpha = 0.1
+        NumOfFollowing.alpha = 0.1
+        FollowerTitle.alpha = 0.1
+        NumOfFollower.alpha = 0.1
+        
+        
         underLine.alpha = 0.1
         targetLine.alpha = 1
         
@@ -329,8 +341,36 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     }
     @objc func tapWritingBtn() {
         print("tapWritingBtn")
+        print("BEFORE_SHOW : \(NOW_SHOW)")
+        
+        switch NOW_SHOW {
+        case "WRITING":
+            print("REMOVE WRITING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "SAVING":
+            print("REMOVE SAVING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "FOLLOWING":
+            print("REMOVE FOLLOWING FROM SUPERVIEW")
+        case "FOLLOWER":
+            print("REMOVE FOLLOWER FROM SUPERVIEW")
+        default:
+            print("REMOVE WRITING FROM SUPERVIEW")
+        }
+        
+        NOW_SHOW = "WRITING"
+        print("NOW_SHOW : \(NOW_SHOW)")
+        
+        let writingCollectionViewFrame = CGRect(origin: CGPoint(x: targetLine.frame.minX, y: targetLine.frame.minY), size: CGSize(width: 0, height: 0))
+        
+        MyWritingTMICollectionView = UICollectionView(frame: writingCollectionViewFrame, collectionViewLayout: UICollectionViewFlowLayout.init())
+        
+        MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+        MyWritingTMICollectionView.delegate = self
+        MyWritingTMICollectionView.dataSource = self
         
         self.view.addSubview(MyWritingTMICollectionView)
+        
         MyWritingTMICollectionView.snp.makeConstraints{ const in
             const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
             const.leading.equalTo(view.snp.leading)
@@ -344,13 +384,57 @@ class MyViewController: UIViewController,UITextFieldDelegate {
                 const.size.equalTo(CGSize(width: self.DeviceWidth * 0.25, height: 2))
                 const.leading.equalTo(self.view.snp.leading)
             }
+            
+            self.WritingTitle.alpha = 1
+            self.NumOfWriting.alpha = 1
+            self.SavingTitle.alpha = 0.1
+            self.NumOfSaving.alpha = 0.1
+            self.FollowingTitle.alpha = 0.1
+            self.NumOfFollowing.alpha = 0.1
+            self.FollowerTitle.alpha = 0.1
+            self.NumOfFollower.alpha = 0.1
+            
             self.view.layoutIfNeeded()
         }
     }
     @objc func tapSavingBtn() {
         print("tapSavingBtn")
+        print("BEFORE_SHOW : \(NOW_SHOW)")
         
-        self.MyWritingTMICollectionView.removeFromSuperview()
+        switch NOW_SHOW {
+        case "WRITING":
+            print("REMOVE WRITING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "SAVING":
+            print("REMOVE SAVING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "FOLLOWING":
+            print("REMOVE FOLLOWING FROM SUPERVIEW")
+        case "FOLLOWER":
+            print("REMOVE FOLLOWER FROM SUPERVIEW")
+        default:
+            print("REMOVE WRITING FROM SUPERVIEW")
+        }
+        
+        NOW_SHOW = "SAVING"
+        print("NOW_SHOW : \(NOW_SHOW)")
+        
+        let writingCollectionViewFrame = CGRect(origin: CGPoint(x: targetLine.frame.minX, y: targetLine.frame.minY), size: CGSize(width: DeviceWidth, height: 0))
+        
+        MyWritingTMICollectionView = UICollectionView(frame: writingCollectionViewFrame, collectionViewLayout: UICollectionViewFlowLayout.init())
+        
+        MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+        MyWritingTMICollectionView.delegate = self
+        MyWritingTMICollectionView.dataSource = self
+        
+        self.view.addSubview(MyWritingTMICollectionView)
+        
+        MyWritingTMICollectionView.snp.makeConstraints{ const in
+            const.top.equalTo(underLine.snp.bottom).offset(DeviceHeight * 0.01)
+            const.leading.equalTo(view.snp.leading)
+            const.trailing.equalTo(view.snp.trailing)
+            const.bottom.equalTo(view.snp.bottom)
+        }
         
         UIView.animate(withDuration: 0.5) {
             self.targetLine.snp.remakeConstraints { const in
@@ -359,35 +443,101 @@ class MyViewController: UIViewController,UITextFieldDelegate {
                 const.leading.equalTo(self.view.snp.leading).offset(self.DeviceWidth * 0.25)
             }
             
+            self.WritingTitle.alpha = 0.1
+            self.NumOfWriting.alpha = 0.1
+            self.SavingTitle.alpha = 1
+            self.NumOfSaving.alpha = 1
+            self.FollowingTitle.alpha = 0.1
+            self.NumOfFollowing.alpha = 0.1
+            self.FollowerTitle.alpha = 0.1
+            self.NumOfFollower.alpha = 0.1
             
-            self.view.layoutIfNeeded()
-        }
-    }
-    @objc func tapFollowerBtn() {
-        print("tapFollowerBtn")
-        UIView.animate(withDuration: 0.5) {
-            self.targetLine.snp.remakeConstraints { const in
-                const.top.equalTo(self.FollowingTitle.snp.bottom).offset(self.DeviceHeight * 0.01)
-                const.size.equalTo(CGSize(width: self.DeviceWidth * 0.25, height: 2))
-                const.leading.equalTo(self.view.snp.leading).offset(self.DeviceWidth * 0.5)
-            }
             self.view.layoutIfNeeded()
         }
     }
     @objc func tapFollowingBtn() {
         print("tapFollowingBtn")
+        print("BEFORE_SHOW : \(NOW_SHOW)")
+        switch NOW_SHOW {
+        case "WRITING":
+            print("REMOVE WRITING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "SAVING":
+            print("REMOVE SAVING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "FOLLOWING":
+            print("REMOVE FOLLOWING FROM SUPERVIEW")
+        case "FOLLOWER":
+            print("REMOVE FOLLOWER FROM SUPERVIEW")
+        default:
+            print("REMOVE WRITING FROM SUPERVIEW")
+        }
+        NOW_SHOW = "Following"
+        print("NOW_SHOW : \(NOW_SHOW)")
+        
         UIView.animate(withDuration: 0.5) {
             self.targetLine.snp.remakeConstraints { const in
                 const.top.equalTo(self.FollowingTitle.snp.bottom).offset(self.DeviceHeight * 0.01)
                 const.size.equalTo(CGSize(width: self.DeviceWidth * 0.25, height: 2))
                 const.leading.equalTo(self.view.snp.leading).offset(self.DeviceWidth * 0.75)
             }
+            self.WritingTitle.alpha = 0.1
+            self.NumOfWriting.alpha = 0.1
+            self.SavingTitle.alpha = 0.1
+            self.NumOfSaving.alpha = 0.1
+            self.FollowingTitle.alpha = 1
+            self.NumOfFollowing.alpha = 1
+            self.FollowerTitle.alpha = 0.1
+            self.NumOfFollower.alpha = 0.1
+            
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func tapFollowerBtn() {
+        print("tapFollowerBtn")
+        
+        print("BEFORE_SHOW : \(NOW_SHOW)")
+        switch NOW_SHOW {
+        case "WRITING":
+            print("REMOVE WRITING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "SAVING":
+            print("REMOVE SAVING FROM SUPERVIEW")
+            self.MyWritingTMICollectionView.removeFromSuperview()
+        case "FOLLOWING":
+            print("REMOVE FOLLOWING FROM SUPERVIEW")
+        case "FOLLOWER":
+            print("REMOVE FOLLOWER FROM SUPERVIEW")
+        default:
+            print("REMOVE WRITING FROM SUPERVIEW")
+        }
+        
+        NOW_SHOW = "FOLLOWER"
+        print("NOW_SHOW : \(NOW_SHOW)")
+        
+        UIView.animate(withDuration: 0.5) {
+            self.targetLine.snp.remakeConstraints { const in
+                const.top.equalTo(self.FollowingTitle.snp.bottom).offset(self.DeviceHeight * 0.01)
+                const.size.equalTo(CGSize(width: self.DeviceWidth * 0.25, height: 2))
+                const.leading.equalTo(self.view.snp.leading).offset(self.DeviceWidth * 0.5)
+            }
+            self.WritingTitle.alpha = 0.1
+            self.NumOfWriting.alpha = 0.1
+            self.SavingTitle.alpha = 0.1
+            self.NumOfSaving.alpha = 0.1
+            self.FollowingTitle.alpha = 0.1
+            self.NumOfFollowing.alpha = 0.1
+            self.FollowerTitle.alpha = 1
+            self.NumOfFollower.alpha = 1
+            
             self.view.layoutIfNeeded()
         }
     }
     
     @objc func tapUpdateBtn() {
         print("tapUpdateBtn")
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -397,14 +547,14 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     
     func registerCollectionView() {
         MyWritingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
-        MySavingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
+//        MySavingTMICollectionView.register(MyTMICell.classForCoder(), forCellWithReuseIdentifier: "MyTMICell")
     }
     func collectionViewDelegate() {
         MyWritingTMICollectionView.delegate = self
         MyWritingTMICollectionView.dataSource = self
         
-        MySavingTMICollectionView.delegate = self
-        MySavingTMICollectionView.dataSource = self
+//        MySavingTMICollectionView.delegate = self
+//        MySavingTMICollectionView.dataSource = self
     }
 }
 
@@ -432,7 +582,32 @@ extension MyViewController: UICollectionViewDataSource {
     
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        switch NOW_SHOW {
+        case "WRITING":
+            print("REMOVE WRITING FROM SUPERVIEW")
+            let WritingList = TMIList.filter { $0.writer.id == haneul.id }
+            print("WritingList:\(WritingList)")
+            return WritingList.count
+        
+        case "SAVING":
+            print("REMOVE SAVING FROM SUPERVIEW")
+            let SavingList = TMIList.filter { $0.writer.id == wonhee.id }
+            print("SavingList:\(SavingList)")
+            return SavingList.count
+            
+        case "FOLLOWING":
+            print("REMOVE FOLLOWING FROM SUPERVIEW")
+            return 10
+            
+        case "FOLLOWER":
+            print("REMOVE FOLLOWER FROM SUPERVIEW")
+            return 10
+            
+        default:
+            print("REMOVE WRITING FROM SUPERVIEW")
+            return 10
+        }
     }
     
     // 셀 어떻게 표시 할까?
@@ -440,7 +615,31 @@ extension MyViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyTMICell", for: indexPath) as? MyTMICell else {
             return UICollectionViewCell()
         }
-        cell.updateData(index: indexPath)
+        
+        switch NOW_SHOW {
+        case "WRITING":
+            print("REMOVE WRITING FROM SUPERVIEW")
+            let WritingList = TMIList.filter { $0.writer.id == haneul.id }
+            cell.updateData(index: indexPath, List: WritingList)
+        
+        case "SAVING":
+            print("REMOVE SAVING FROM SUPERVIEW")
+            let SavingList = TMIList.filter { $0.writer.id == wonhee.id }
+            cell.updateData(index: indexPath, List: SavingList)
+            
+        case "FOLLOWING":
+            print("REMOVE FOLLOWING FROM SUPERVIEW")
+            
+            
+        case "FOLLOWER":
+            print("REMOVE FOLLOWER FROM SUPERVIEW")
+            
+            
+        default:
+            print("REMOVE WRITING FROM SUPERVIEW")
+            
+        }
+    
         cell.setupCell()
         
         return cell

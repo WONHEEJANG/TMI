@@ -235,7 +235,7 @@ extension UIImage {
         print("bitmapAvg:\(bitmapAvg)")
         print("bitmap:\(bitmap)")
         
-        let ratio:CGFloat = 0.98
+        let ratio:CGFloat = 0.95
         
         return UIColor(
             red: CGFloat(bitmap[0]) / 255 * ratio,

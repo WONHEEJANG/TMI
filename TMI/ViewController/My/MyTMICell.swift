@@ -15,17 +15,18 @@ class MyTMICell: UICollectionViewCell {
     let DeviceWidth = UIScreen.main.bounds.width
     let DeviceHeight = UIScreen.main.bounds.height
     
-    func updateData(index:IndexPath){
+    func updateData(index:IndexPath, List:[TMI]){
         
-        self.TMIEmojiLabel.text = TMIList[index.row].emoji
-        self.TMIDescriptionLabel.text = TMIList[index.row].description
-        self.CategoryLabel.text = TMIList[index.row].topic
+        self.TMIEmojiLabel.text = List[index.row].emoji
+        self.TMIDescriptionLabel.text = List[index.row].description
+        self.CategoryLabel.text = List[index.row].topic
         self.TMIView.backgroundColor = self.TMIEmojiLabel.toImage?.averageColor
         
         print("TMIEmojiLabel.text:\(TMIEmojiLabel.text)")
         print("TMIView.backgroundColor:\(TMIView.backgroundColor)")
         
     }
+    
     
     func setupCell(){
         
