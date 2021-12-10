@@ -22,6 +22,7 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
     var ConfirmBtn = UIButton(type: .system)
     var BackBtn = UIButton(type: .system)
     
+    var loginUsr : User?
     
     let updateImg = UIImage(named: "icon-plus")
     var updateImgBtn = UIButton()
@@ -32,6 +33,12 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("SettingProfileImageVC loginUsr : \(loginUsr?.id)")
+        print("SettingProfileImageVC loginUsr : \(loginUsr?.profileImg)")
+        print("SettingProfileImageVC loginUsr : \(loginUsr?.name)")
+        print("SettingProfileImageVC loginUsr : \(loginUsr?.topics)")
+        print("SettingProfileImageVC loginUsr : \(loginUsr?.pushTime)")
         
         self.imagePicker.allowsEditing = true // 수정 가능 여부
         self.imagePicker.delegate = self // picker delegate
@@ -103,7 +110,13 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
         profileImgView.clipsToBounds = true
         profileImgView.layer.masksToBounds = true
         profileImgView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
+        
+        
+        
         profileImgView.image = UIImage(named: "JJANGU")
+        
+        
+        
         
         profileImgView.snp.makeConstraints { const in
             const.top.equalTo(DescriptionLabel.snp.bottom).offset(DeviceHeight * 0.05)

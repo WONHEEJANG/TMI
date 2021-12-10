@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import KakaoSDKUser
 
 class SettingNameVC: UIViewController,UITextFieldDelegate {
     let DeviceHeight = UIScreen.main.bounds.height
@@ -19,24 +20,34 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     
     var textField = UITextField()
     
-    var loginUsr : String?
+    var loginUsr : User?
     
     override func viewWillAppear(_ animated: Bool) {
         self.textField.becomeFirstResponder()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SETTING_NAME_TO_CATEGORY" {
+            if let vc = segue.destination as? SettingCategoryVC {
+                vc.loginUsr = sender as? User
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SettingNaviController loginUsr : \(loginUsr)")
+        print("SettingNameVC loginUsr : \(loginUsr?.id)")
+        print("SettingNameVC loginUsr : \(loginUsr?.profileImg)")
+        print("SettingNameVC loginUsr : \(loginUsr?.name)")
         
         self.view.addSubview(TitleLabel)
         self.view.addSubview(SubTitleLabel)
         self.view.addSubview(textField)
         self.view.addSubview(ConfirmBtn)
         
-//                TitleLabel.backgroundColor = .red
-//                SubTitleLabel.backgroundColor = .orange
-//                textField.backgroundColor = .orange
+        //                TitleLabel.backgroundColor = .red
+        //                SubTitleLabel.backgroundColor = .orange
+        //                textField.backgroundColor = .orange
         
         TitleLabel.text = "🍞➕"
         TitleLabel.font = TitleLabel.font.withSize(25)
@@ -60,6 +71,11 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
         }
         
         setKeyboardObserver()
+        
+        if loginUsr?.id.contains("KAKAO_") == true {
+            textField.text = loginUsr?.name
+        }
+        
         textField.delegate = self
         textField.textAlignment = .center
         textField.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 30)
@@ -93,11 +109,14 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
 
 extension SettingNameVC {
     @objc func tapConfirmBtn() {
-        print("tapConfirmBtn")
+        print("tap_SettingNameVC_ConfirmBtn")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "SettingCategoryVC") as! SettingCategoryVC
         
-        self.show(nextVC, sender: nil)
+        self.loginUsr?.name = self.textField.text ?? "NIL"
+        print(self.loginUsr?.name)
+        
+        performSegue(withIdentifier: "SETTING_NAME_TO_CATEGORY", sender: self.loginUsr)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -136,7 +155,7 @@ extension SettingNameVC {
                     const.bottom.equalTo(self.view.snp.bottom).offset(self.DeviceHeight * -0.05)
                     const.size.equalTo(CGSize(width: self.DeviceWidth * 0.8, height: self.DeviceHeight * 0.06))
                 }
-                self.view.layoutIfNeeded()
+                self.ConfirmBtn.layoutIfNeeded()
             }
         }
         print("keyboardwillhide")

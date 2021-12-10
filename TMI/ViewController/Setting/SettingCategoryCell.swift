@@ -14,9 +14,9 @@ class SettingCategoryCell: UICollectionViewCell {
     var isTapped = false
     
     
-    func updateData(){
+    func updateData(index : IndexPath){
         CategoryImgView.image = UIImage(named: "category-wine")
-        CategoryLabel.text = "술"
+        CategoryLabel.text = topics[index.row]
     }
     
     func setupCell(){

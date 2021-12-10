@@ -19,8 +19,23 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
     var ConfirmBtn = UIButton(type: .system)
     var BackBtn = UIButton(type: .system)
     
+    var loginUsr : User?
+    var selectedTopic : [String] = []
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SETTING_CATEGORY_TO_PUSHTIME" {
+            if let vc = segue.destination as? SettingPushTimeVC {
+                vc.loginUsr = sender as? User
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("SettingCategoryVC loginUsr : \(loginUsr?.id)")
+        print("SettingCategoryVC loginUsr : \(loginUsr?.profileImg)")
+        print("SettingCategoryVC loginUsr : \(loginUsr?.name)")
         
         registerCollectionView()
         collectionViewDelegate()
@@ -111,11 +126,13 @@ class SettingCategoryVC: UIViewController,UITextFieldDelegate {
 
 extension SettingCategoryVC: UICollectionViewDataSource {
     @objc func tapConfirmBtn() {
-        print("tapConfirmBtn")
+        print("tap_SettingCategoryVC_ConfirmBtn")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "SettingPushTimeVC") as! SettingPushTimeVC
         
-        self.show(nextVC, sender: nil)
+        self.loginUsr?.topics = selectedTopic
+        
+        performSegue(withIdentifier: "SETTING_CATEGORY_TO_PUSHTIME", sender: self.loginUsr)
     }
     
     @objc func tapBackBtn() {
@@ -125,7 +142,7 @@ extension SettingCategoryVC: UICollectionViewDataSource {
     
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 16
+        return 10
     }
     
     // 셀 어떻게 표시 할까?
@@ -133,7 +150,7 @@ extension SettingCategoryVC: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SettingCategoryCell", for: indexPath) as? SettingCategoryCell else {
             return UICollectionViewCell()
         }
-        cell.updateData()
+        cell.updateData(index: indexPath)
         cell.setupCell()
         //        cell.backgroundColor = .yellow
         
@@ -149,15 +166,18 @@ extension SettingCategoryVC: UICollectionViewDelegate {
         
         let cell = collectionView.cellForItem(at: indexPath) as! SettingCategoryCell
         
-        
-        
         if(cell.isTapped){
             cell.isTapped = false
             cell.alpha = 1
+            
+            let index = selectedTopic.firstIndex(of: topics[indexPath.row])
+            selectedTopic.remove(at: index!)
+            
         }
         else{
             cell.isTapped = true
             cell.alpha = 0.2
+            selectedTopic.append(topics[indexPath.row])
         }
         print("cell.isTapped : \(cell.isTapped)")
     }
@@ -179,7 +199,7 @@ extension UINavigationController: ObservableObject, UIGestureRecognizerDelegate 
         super.viewDidLoad()
         interactivePopGestureRecognizer?.delegate = self
     }
-
+    
     public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
     }

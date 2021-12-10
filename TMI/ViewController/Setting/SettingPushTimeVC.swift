@@ -31,10 +31,23 @@ class SettingPushTimeVC: UIViewController,UITextFieldDelegate{
     let Hours = ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
     let Minutes = ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59"]
     
+    var loginUsr : User?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SETTING_PUSHTIME_TO_PP" {
+            if let vc = segue.destination as? SettingProfileImageVC {
+                vc.loginUsr = sender as? User
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hours : \(Hours)")
-        print("Minutes : \(Minutes)")
+        print("SettingPushTimeVC loginUsr : \(loginUsr?.id)")
+        print("SettingPushTimeVC loginUsr : \(loginUsr?.profileImg)")
+        print("SettingPushTimeVC loginUsr : \(loginUsr?.name)")
+        print("SettingPushTimeVC loginUsr : \(loginUsr?.topics)")
         
         
         self.view.addSubview(TitleLabel)
@@ -158,11 +171,15 @@ class SettingPushTimeVC: UIViewController,UITextFieldDelegate{
 
 extension SettingPushTimeVC: UIPickerViewDataSource,UIPickerViewDelegate {
     @objc func tapConfirmBtn() {
-        print("tapConfirmBtn")
+        print("tap_SettingProfileImageVC_ConfirmBtn")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "SettingProfileImageVC") as! SettingProfileImageVC
         
-        self.show(nextVC, sender: nil)
+        let hour = Hours[TimePickerView.selectedRow(inComponent: 0)]
+        let min = Minutes[TimePickerView.selectedRow(inComponent: 1)]
+        
+        self.loginUsr?.pushTime = hour + ":" + min
+        performSegue(withIdentifier: "SETTING_PUSHTIME_TO_PP", sender: self.loginUsr)
     }
     
     @objc func tapBackBtn() {

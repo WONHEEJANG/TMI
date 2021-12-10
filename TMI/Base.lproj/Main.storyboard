@@ -441,6 +441,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="MSG-rz-QWb"/>
+                    <connections>
+                        <segue destination="0PA-Jc-X7e" kind="show" identifier="SETTING_NAME_TO_CATEGORY" id="nb9-e4-xTY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCp-Yy-VsI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -457,6 +460,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="0ug-xr-FAA"/>
+                    <connections>
+                        <segue destination="NTV-dJ-VUv" kind="show" identifier="SETTING_CATEGORY_TO_PUSHTIME" id="zEv-Gj-arN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21r-UZ-M4Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -472,6 +478,10 @@
                         <viewLayoutGuide key="safeArea" id="zfc-7G-ToJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GJk-Eo-r7Z"/>
+                    <connections>
+                        <segue destination="JoI-zr-c5V" kind="show" identifier="SETTING_PUSHTIME_TO_PP" id="2MB-Ks-9Fo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xh-9M-2BE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,6 +497,7 @@
                         <viewLayoutGuide key="safeArea" id="bQO-FW-rev"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ifd-a0-ngh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjL-Qf-gM3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,9 +16,11 @@ struct TMI {
     var writer : User
 }
 
-var haneul = User(id: "skyduck2u", pw: "123", profileImg: UIImage(), name: "정하늘", age: 29, job: "CEO", contact: "01012345678", WrittenTMIs: [], FOLLOWERs: [], FOLLOWINGs: [])
+var topics = ["생활","유머","커피","술","음식","영화","음악","캐릭터","여행","IT"]
 
-var wonhee = User(id: "WONHEE", pw: "123", profileImg: UIImage(), name: "장원희", age: 29, job: "CTO", contact: "01012345678", WrittenTMIs: [], FOLLOWERs: [], FOLLOWINGs: [])
+var haneul = User(id: "skyduck2u", profileImg: "", name: "정하늘", age: 29, job: "CEO", contact: "01012345678")
+
+var wonhee = User(id: "WONHEE", profileImg: "", name: "장원희", age: 29, job: "CTO", contact: "01012345678")
 
 var TMI_1 = TMI(topic: "1", emoji: "🍕", title: "1", description: "하와이안 피자는 캐나다에서 만들어졌다", writer: haneul)
 var TMI_2 = TMI(topic: "2", emoji: "🫐", title: "2", description: "블루베리 속살은 연두색이다", writer: haneul)

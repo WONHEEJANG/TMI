@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     let appleButton = UIButton(type: .custom)
     let kakaoButton = UIButton(type: .custom)
     var isLogin : Bool = false
-    var loginUsr = ""
+    var loginUsr = User()
     //    let appleButton = ASAuthorizationAppleIDButton()
     
     let db = Database.database().reference()
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
         if segue.identifier == "LOGINtoSETTING" {
             if let target = segue.destination as? SettingNaviController, let vc = target.topViewController as? SettingNameVC {
                 //                vc.loginUsr = sender as? String
-                vc.loginUsr = sender as? String
+                vc.loginUsr = sender as? User
             }
         }
     }
@@ -104,7 +104,7 @@ class LoginViewController: UIViewController {
         
         print("request.requestedScopes : \(request.requestedScopes)")
         
-        let usr = User(id: "", pw: "", profileImg: UIImage(), name: "", age: 0, job: "", contact: "", WrittenTMIs: [], FOLLOWERs: [], FOLLOWINGs: [])
+        let usr = User()
     }
     
     func setupKakaoLoiginView()
@@ -169,7 +169,9 @@ class LoginViewController: UIViewController {
                 
                 
                 self.getDataFromKaKaoLogin(accessToken: accessToken!){ data in
-                    self.loginUsr = "KAKAO_\(data.id)"
+                    self.loginUsr.id = "KAKAO_\(data.id)"
+                    self.loginUsr.name = data.properties.nickname
+                    self.loginUsr.profileImg = data.properties.profile_image
                     self.PresentWhenLoginComplete()
                 }
             }
