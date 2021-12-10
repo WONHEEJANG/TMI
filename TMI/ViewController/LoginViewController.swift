@@ -12,7 +12,7 @@ import KakaoSDKUser
 import KakaoSDKCommon
 import AuthenticationServices
 import Alamofire
-import FirebaseDatabase
+
 
 class LoginViewController: UIViewController {
     
@@ -27,18 +27,15 @@ class LoginViewController: UIViewController {
     var loginUsr = User()
     //    let appleButton = ASAuthorizationAppleIDButton()
     
-    let db = Database.database().reference()
+    
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            print("LoginView_DidLoad")
         
-        db.child("TMI").child("description").observeSingleEvent(of: .value) { snapshot in
-            print("snapshot : \(snapshot)")
-            print("VIEWDIDLOAD")
-        }
         
         
         if(!isLogin){
@@ -141,9 +138,9 @@ class LoginViewController: UIViewController {
                     
                     print("DEBUG>> Success \(response) ")
                     
-                    let userItemRef = self.db.child("userDB").child("kakao_\(response.id)") // 카카오 로그인 사용자 DB에 저장
-                    let values: [String: Any] = ["login":"kakao", "kakao_id": response.id, "last_connected_at": response.connected_at, "kakao_nickname": response.properties.nickname, "kakao_profile_imge":response.properties.profile_image,"kakao_thumbnail_image":response.properties.thumbnail_image ]
-                    userItemRef.setValue(values)
+//                    let userItemRef = self.db.child("userDB").child("kakao_\(response.id)") // 카카오 로그인 사용자 DB에 저장
+//                    let values: [String: Any] = ["login":"kakao", "kakao_id": response.id, "last_connected_at": response.connected_at, "kakao_nickname": response.properties.nickname, "kakao_profile_imge":response.properties.profile_image,"kakao_thumbnail_image":response.properties.thumbnail_image ]
+//                    userItemRef.setValue(values)
                     
                     data = response
                     

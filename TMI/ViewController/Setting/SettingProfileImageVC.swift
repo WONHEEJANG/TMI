@@ -7,6 +7,9 @@
 
 import UIKit
 import SnapKit
+import Alamofire
+import FirebaseDatabase
+import FirebaseStorage
 
 class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
     let DeviceHeight = UIScreen.main.bounds.height
@@ -112,11 +115,16 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
         profileImgView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
         
         
-        
-        profileImgView.image = UIImage(named: "JJANGU")
-        
-        
-        
+        let url = URL(string: self.loginUsr!.profileImg)
+        print("URL : \(url)")
+        do{
+            let data = try Data(contentsOf: url!)
+            profileImgView.image = UIImage(data: data)
+        }
+        catch{
+            print("카카오 프로필이미지를 못불러왔어요.")
+            profileImgView.image = UIImage(named: "JJANGU")
+        }
         
         profileImgView.snp.makeConstraints { const in
             const.top.equalTo(DescriptionLabel.snp.bottom).offset(DeviceHeight * 0.05)
@@ -227,16 +235,39 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
 extension SettingProfileImageVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @objc func tapConfirmBtn() {
-        print("tapConfirmBtn")
+        print("tap_SettingProfileImageVC_ConfirmBtn")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "TMITabBarViewController") as! TMITabBarViewController
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         
+        let storage = Storage.storage()
+        let WillBeUploaded = profileImgView.image?.jpegData(compressionQuality: 0.8)
+        let filePath = loginUsr?.id
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        storage.reference().child(filePath ?? "NIL").putData(WillBeUploaded!, metadata: metaData){
+            (metaData,error) in
+            if let error = error{
+                print("\(filePath)로 업로드 실패")
+                print(error.localizedDescription)
+                return
+            }
+            else{
+                print("\(filePath)로 업로드 성공")
+            }
+        }
+
+        
+        let db = Database.database().reference()
+        let userItemRef = db.child("userDB").child(self.loginUsr?.id ?? "nil") // 카카오 로그인 사용자 DB에 저장
+        let values: [String: Any] = ["id": self.loginUsr?.id, "profileImg": self.loginUsr?.profileImg, "name": self.loginUsr?.name, "age": self.loginUsr?.age, "job": self.loginUsr?.job, "contact": self.loginUsr?.contact, "pushTime": self.loginUsr?.pushTime, "topics": self.loginUsr?.topics, "WrittenTMIs": self.loginUsr?.WrittenTMIs, "FOLLOWERs": self.loginUsr?.FOLLOWERs, "FOLLOWINGs": self.loginUsr?.FOLLOWINGs]
+        
+        userItemRef.setValue(values)
+        
         self.navigationController?.removeFromParent()
         self.show(nextVC, sender: nil)
-//        self.navigationController?.dismiss(animated: true){
-//            self.present(nextVC, animated: true, completion: nil)
-//        }
+
+        
     }
     
     @objc func tapBackBtn() {

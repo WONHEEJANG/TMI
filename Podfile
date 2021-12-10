@@ -15,6 +15,8 @@ pod 'Firebase/Core'
 
 pod 'Firebase/Messaging'
 
+pod 'Firebase/Storage'
+
 pod 'KakaoSDK'
 
 pod 'SnapKit'
