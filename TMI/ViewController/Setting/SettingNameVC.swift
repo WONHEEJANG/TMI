@@ -19,14 +19,15 @@ class SettingNameVC: UIViewController,UITextFieldDelegate {
     
     var textField = UITextField()
     
+    var loginUsr : String?
+    
     override func viewWillAppear(_ animated: Bool) {
         self.textField.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        print("SettingNaviController loginUsr : \(loginUsr)")
         
         self.view.addSubview(TitleLabel)
         self.view.addSubview(SubTitleLabel)

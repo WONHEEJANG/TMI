@@ -385,6 +385,7 @@
                     </view>
                     <connections>
                         <outlet property="LoginView" destination="DV7-Yp-LI0" id="4zE-4b-c7I"/>
+                        <segue destination="54a-dB-N4x" kind="presentation" identifier="LOGINtoSETTING" modalPresentationStyle="fullScreen" id="8qG-WT-f16"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ygt-8g-Fgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -416,6 +417,7 @@
         <scene sceneID="cuB-rQ-eZ2">
             <objects>
                 <navigationController restorationIdentifier="SettingNaviController" storyboardIdentifier="SettingNaviController" title="SettingNaviController" id="54a-dB-N4x" customClass="SettingNaviController" customModule="TMI" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="F2D-Ih-UqT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ftt-nT-cWA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

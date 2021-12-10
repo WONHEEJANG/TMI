@@ -24,9 +24,13 @@ class LoginViewController: UIViewController {
     let appleButton = UIButton(type: .custom)
     let kakaoButton = UIButton(type: .custom)
     var isLogin : Bool = false
+    var loginUsr = ""
     //    let appleButton = ASAuthorizationAppleIDButton()
     
     let db = Database.database().reference()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +51,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LOGINtoSETTING" {
+            if let target = segue.destination as? SettingNaviController, let vc = target.topViewController as? SettingNameVC {
+                //                vc.loginUsr = sender as? String
+                vc.loginUsr = sender as? String
+            }
+        }
+    }
+    
     func PresentWhenLoginComplete(){
-        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "SettingNaviController")
-        settingVC?.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        self.present(settingVC!, animated: true, completion: nil)
+        print("self.loginUsr : \(self.loginUsr)")
+        self.performSegue(withIdentifier: "LOGINtoSETTING", sender: self.loginUsr)
     }
     
     
@@ -109,10 +121,16 @@ class LoginViewController: UIViewController {
             const.trailing.equalToSuperview().offset(DeviceWidth * -0.1)
         }
     }
-    func getDataFromKaKaoLogin(accessToken : String){
+    
+    
+    func getDataFromKaKaoLogin(accessToken : String, completionHandler : @escaping (UserResponse)->Void) {
+        
+        var data : UserResponse!
+        
         let url = "https://kapi.kakao.com/v2/user/me"
         
         let headers : HTTPHeaders = [ "Authorization" : "Bearer \(accessToken)"]
+        
         
         AF.request(url,headers: headers) //로그인한 사용자 정보 가져오기
             .validate()
@@ -120,19 +138,24 @@ class LoginViewController: UIViewController {
                 
                 switch response.result {
                 case .success(let response):
+                    
                     print("DEBUG>> Success \(response) ")
                     
                     let userItemRef = self.db.child("userDB").child("kakao_\(response.id)") // 카카오 로그인 사용자 DB에 저장
                     let values: [String: Any] = ["login":"kakao", "kakao_id": response.id, "last_connected_at": response.connected_at, "kakao_nickname": response.properties.nickname, "kakao_profile_imge":response.properties.profile_image,"kakao_thumbnail_image":response.properties.thumbnail_image ]
                     userItemRef.setValue(values)
                     
+                    data = response
+                    
                 case .failure(let error):
                     print("DEBUG>> Error : \(error.localizedDescription)")
                 }
+                completionHandler(data)
             }
     }
     
     @objc func clickKakaoLogin(_ sender:UITapGestureRecognizer){
+        
         UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
             if let error = error {
                 print(error)
@@ -144,23 +167,11 @@ class LoginViewController: UIViewController {
                 
                 print("accessToken:\(accessToken)")
                 
-                self.getDataFromKaKaoLogin(accessToken: accessToken ?? "")
                 
-                self.PresentWhenLoginComplete()
-            }
-        }
-        
-        UserApi.shared.me() {(user, error) in
-            if let error = error {
-                print(error)
-            }
-            else {
-                print("me() success.")
-                _ = user
-                print("user?.id:\(user?.id)")
-                print("user?.kakaoAccount?.email:\(user?.kakaoAccount?.email)")
-                print("user?.kakaoAccount?.ageRange:\(user?.kakaoAccount?.ageRange)")
-                print("user?.kakaoAccount?.profile?.nickname:\(user?.kakaoAccount?.profile?.nickname)")
+                self.getDataFromKaKaoLogin(accessToken: accessToken!){ data in
+                    self.loginUsr = "KAKAO_\(data.id)"
+                    self.PresentWhenLoginComplete()
+                }
             }
         }
     }
