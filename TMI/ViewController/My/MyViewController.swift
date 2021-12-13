@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class MyViewController: UIViewController,UITextFieldDelegate {
     var NOW_SHOW = "WRITING"
@@ -45,10 +47,12 @@ class MyViewController: UIViewController,UITextFieldDelegate {
     
     var MyTMICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
-    
+    let db = Database.database().reference()
+    let storage = Storage.storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         registerCollectionView()
         collectionViewDelegate()
@@ -63,13 +67,13 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         
         self.view.addSubview(WritingTitle)
         self.view.addSubview(NumOfWriting)
-
+        
         self.view.addSubview(SavingTitle)
         self.view.addSubview(NumOfSaving)
-
+        
         self.view.addSubview(FollowerTitle)
         self.view.addSubview(NumOfFollower)
-
+        
         self.view.addSubview(FollowingTitle)
         self.view.addSubview(NumOfFollowing)
         
@@ -77,7 +81,7 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         self.view.addSubview(SavingBtn)
         self.view.addSubview(FollowerBtn)
         self.view.addSubview(FollowingBtn)
-
+        
         self.view.addSubview(underLine)
         self.view.addSubview(targetLine)
         
@@ -100,13 +104,38 @@ class MyViewController: UIViewController,UITextFieldDelegate {
             const.trailing.equalTo(view.snp.trailing).offset(DeviceHeight * -0.03)
         }
         
+        
+        let usrid = UserDefaults.standard.value(forKey: "id") as! String
+        
+        db.child("userDB").child(usrid).observeSingleEvent(of: .value, with: { snapshot in
+            
+            let value = snapshot.value as? NSDictionary
+            let nickname = value?["name"] as? String ?? ""
+            
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            let ppURL = "gs://tmi-app-4f0c8.appspot.com/" + usrid
+            self.storage.reference(forURL: ppURL).downloadURL{ (url, error) in
+                let data = NSData(contentsOf: url!)
+                let image = UIImage(data: data as! Data)
+                
+            
+//                DispatchQueue.as
+                
+                self.profileImgView.image = image
+                self.NameLabel.text = nickname
+            }
+            
+        }) { error in
+            print(error.localizedDescription)
+        }
+        
         profileImgView.layer.cornerRadius = DeviceWidth * 0.125
         profileImgView.layer.borderWidth = 1
         profileImgView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         profileImgView.clipsToBounds = true
         profileImgView.layer.masksToBounds = true
         profileImgView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25)
-        profileImgView.image = UIImage(named: "JJANGU")
         
         profileImgView.snp.makeConstraints { const in
             const.top.equalTo(SettingBtn.snp.bottom).offset(DeviceHeight * 0.02)
@@ -114,10 +143,8 @@ class MyViewController: UIViewController,UITextFieldDelegate {
             const.centerX.equalTo(view.snp.centerX)
         }
         
-        NameLabel.text = "장계장계장"
         NameLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 35)
         NameLabel.textAlignment = .center
-        
         
         NameLabel.snp.makeConstraints { const in
             const.top.equalTo(profileImgView.snp.bottom)
@@ -171,7 +198,7 @@ class MyViewController: UIViewController,UITextFieldDelegate {
         
         tapUpdateBtnGesture.numberOfTapsRequired = 1
         updateImgBtn.addGestureRecognizer(tapUpdateBtnGesture)
-    
+        
         NumOfWriting.text = "1"
         NumOfWriting.textAlignment = .center
         NumOfWriting.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 15)
@@ -269,14 +296,14 @@ class MyViewController: UIViewController,UITextFieldDelegate {
             const.size.equalTo(CGSize(width: DeviceWidth * 0.25, height: DeviceHeight * Height))
             const.trailing.equalTo(view.snp.trailing)
         }
-
+        
         underLine.snp.makeConstraints { const in
             const.top.equalTo(WritingTitle.snp.bottom).offset(DeviceHeight * 0.01)
             const.size.equalTo(CGSize(width: DeviceWidth, height: 2))
             const.leading.equalTo(view.snp.leading)
             const.trailing.equalTo(view.snp.trailing)
         }
-
+        
         targetLine.snp.makeConstraints { const in
             const.top.equalTo(FollowingTitle.snp.bottom).offset(DeviceHeight * 0.01)
             const.size.equalTo(CGSize(width: DeviceWidth * 0.25, height: 2))
@@ -582,7 +609,7 @@ extension MyViewController: UICollectionViewDataSource {
             let WritingList = TMIList.filter { $0.writer.id == haneul.id }
             print("WritingList:\(WritingList)")
             return WritingList.count
-        
+            
         case "SAVING":
             print("REMOVE SAVING FROM SUPERVIEW")
             let SavingList = TMIList.filter { $0.writer.id == wonhee.id }
@@ -614,7 +641,7 @@ extension MyViewController: UICollectionViewDataSource {
             print("REMOVE WRITING FROM SUPERVIEW")
             let WritingList = TMIList.filter { $0.writer.id == haneul.id }
             cell.updateData(index: indexPath, List: WritingList)
-        
+            
         case "SAVING":
             print("REMOVE SAVING FROM SUPERVIEW")
             let SavingList = TMIList.filter { $0.writer.id == wonhee.id }
@@ -632,7 +659,7 @@ extension MyViewController: UICollectionViewDataSource {
             print("REMOVE WRITING FROM SUPERVIEW")
             
         }
-    
+        
         cell.setupCell()
         
         return cell
@@ -646,7 +673,7 @@ extension MyViewController: UICollectionViewDelegate {
         print("tap => \(indexPath)")
         
         let cell = collectionView.cellForItem(at: indexPath) as! MyTMICell
-    
+        
     }
 }
 

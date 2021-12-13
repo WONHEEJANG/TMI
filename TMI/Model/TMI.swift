@@ -16,6 +16,8 @@ struct TMI {
     var writer : User
 }
 
+var NOW_LOGIN = User()
+
 var topics = ["생활","유머","커피","술","음식","영화","음악","캐릭터","여행","IT"]
 
 var haneul = User(id: "skyduck2u", profileImg: "", name: "정하늘", age: 29, job: "CEO", contact: "01012345678")

@@ -132,7 +132,7 @@ class SettingProfileImageVC: UIViewController,UITextFieldDelegate {
             const.centerX.equalTo(view.snp.centerX)
         }
         
-        NameLabel.text = "장계장계장"
+        NameLabel.text = loginUsr?.name
         NameLabel.font = UIFont(name: "SpoqaHanSansNeo-Bold", size: 35)
         NameLabel.textAlignment = .center
         
@@ -264,6 +264,8 @@ extension SettingProfileImageVC: UIImagePickerControllerDelegate, UINavigationCo
         
         userItemRef.setValue(values)
         
+        UserDefaults.standard.set(self.loginUsr?.id, forKey: "id")
+            
         self.navigationController?.removeFromParent()
         self.show(nextVC, sender: nil)
 

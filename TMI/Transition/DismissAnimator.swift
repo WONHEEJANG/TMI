@@ -38,8 +38,12 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         
         guard let contentVC = transitionContext.viewController(forKey: .from) as? TMIDetailViewController else { fatalError() }
-        guard let SettingNaviC = transitionContext.viewController(forKey: .to) as? SettingNaviController else {fatalError()}
-        guard let toVC = SettingNaviC.topViewController as? TMITabBarViewController else {fatalError()}
+        //======여기 밑에는 로그인으로 들어오고 =====
+        //======여기 밑에는 로그인으로 들어오고 =====
+        //======여기 밑에는 로그인으로 들어오고 =====
+    
+//        guard let SettingNaviC = transitionContext.viewController(forKey: .to) as? SettingNaviController else {fatalError()}
+//        guard let toVC = SettingNaviC.topViewController as? TMITabBarViewController else {fatalError()}
         
         //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
         //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
@@ -47,6 +51,16 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         
         
 //        guard let toVC = transitionContext.viewController(forKey: .to) as? TMITabBarViewController else { fatalError() }
+       
+        var toVC : TMITabBarViewController!
+        
+        if let SettingNaviC = transitionContext.viewController(forKey: .to) as? SettingNaviController {
+            toVC = SettingNaviC.topViewController as? TMITabBarViewController
+        }
+        else {
+            toVC = transitionContext.viewController(forKey: .to) as? TMITabBarViewController
+        }
+        
         guard let appStoreMenuVC = toVC.viewControllers![0] as? FeedViewController else { fatalError() }
         guard let fromView = contentVC.view else { fatalError() }
         guard let toView = appStoreMenuVC.view else { fatalError() }

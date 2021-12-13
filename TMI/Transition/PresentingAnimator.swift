@@ -36,11 +36,14 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        //        containerView.alpha = 1.0
-
-        guard let SettingNaviC = transitionContext.viewController(forKey: .from) as? SettingNaviController else {fatalError()}
-        guard let fromVC = SettingNaviC.topViewController as? TMITabBarViewController else {fatalError()}
-        guard let feedVC = fromVC.children[0] as? FeedViewController else {fatalError()}
+        
+        //======여기 밑에는 로그인으로 들어오고 =====
+        //======여기 밑에는 로그인으로 들어오고 =====
+        //======여기 밑에는 로그인으로 들어오고 =====
+        
+//        guard let SettingNaviC = transitionContext.viewController(forKey: .from) as? SettingNaviController else {fatalError()}
+//        guard let fromVC = SettingNaviC.topViewController as? TMITabBarViewController else {fatalError()}
+//        guard let feedVC = fromVC.children[0] as? FeedViewController else {fatalError()}
         
         //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
         //======여기 밑에는 로그인으로 안들어오고 처음부터 Feed들어오면 밑에꺼로 해야됌 =====
@@ -48,8 +51,17 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
         
 //        guard let fromVC = transitionContext.viewController(forKey: .from) as? TMITabBarViewController else {fatalError()}
 //        guard let feedVC = fromVC.children[0] as? FeedViewController else {fatalError()}
+        var fromVC : TMITabBarViewController!
+        var feedVC : FeedViewController!
         
-        
+        if let SettingNaviC = transitionContext.viewController(forKey: .from) as? SettingNaviController {
+            fromVC = SettingNaviC.topViewController as? TMITabBarViewController
+            feedVC = fromVC.children[0] as? FeedViewController
+        }
+        else {
+            fromVC = transitionContext.viewController(forKey: .from) as? TMITabBarViewController
+            feedVC = fromVC.children[0] as? FeedViewController
+        }
         
         guard let contentVC = transitionContext.viewController(forKey: .to) as? TMIDetailViewController else {fatalError()}
         
@@ -83,8 +95,9 @@ class PresentingAnimator : NSObject, UIViewControllerAnimatedTransitioning{
         let TOPANCHOR_CONSTANT = UIScreen.main.bounds.height / 4 // (디바이스 사이즈 - TMI DETAIL뷰)
         
         contentViewTopAnchor.constant = TOPANCHOR_CONSTANT // TOP과 POUP과의 거리
-        
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
+
+        //        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveLinear, animations: {
             contentVC.TMIDetailView.layoutIfNeeded()
         }) { (comp) in
             //                   toView.alpha = 1.0

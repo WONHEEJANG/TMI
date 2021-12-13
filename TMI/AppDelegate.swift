@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDKCommon.initSDK(appKey: "b99f09323dc0c0180515f3f0ac6a3355")
         
-        
+
         return true
     }
     
